@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+<validation-config lang="auto">
+	<form id="form3" show-error="alert" show-type="first">
+		<!--<form id="form3" show-error="error" show-type="all">
+		-->
+		<field name="userName" display-name="用户名" onfail="">
+			<depend name="required" />
+			<depend name="minLength" param0="2" />
+			<depend name="maxLength" param0="20" />
+		</field>
+		<field name="password" display-name="密码">
+			<depend name="required" />
+			<depend name="minLength" param0="5" />
+			<depend name="maxLength" param0="20" />
+		</field>
+		<field name="password2" display-name="重复密码">
+			<depend name="required" />
+			<depend name="minLength" param0="5" />
+			<depend name="maxLength" param0="20" />
+			<depend name="equalsField" param0="password" />
+		</field>
+		<field name="email" display-name="email">
+			<depend name="required" />
+			<depend name="email" />
+		</field>
+	</form>
+
+	<form id="form4" show-error="alert" show-type="first">
+		<field name="userName" display-name="用户名" onfail="">
+			<depend name="required" />
+			<depend name="minLength" param0="2" />
+			<depend name="maxLength" param0="20" />
+		</field>
+		<field name="password" display-name="密码">
+			<depend name="required" />
+			<depend name="minLength" param0="5" />
+			<depend name="maxLength" param0="20" />
+		</field>
+		<field name="email" display-name="email">
+			<depend name="required" />
+			<depend name="email" />
+		</field>
+	</form>
+</validation-config>

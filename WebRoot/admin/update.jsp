@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
-	pageContext.setAttribute("ctx",path);
+	pageContext.setAttribute("ctx", path);
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
@@ -15,12 +15,13 @@
 		<meta name="huangyunan" content="huangyunan" />
 		<meta name="description" content="My Site" />
 		<meta name="keywords" content="key, words" />
+		<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<title>news</title>
 	</head>
 	<body>
 		<div id="content">
-			<%@include file="head.jsp" %>
+			<%@include file="head.jsp"%>
 			<div id="mid">
 				<div id="left">
 					<form id="postnew" method="post" action="servlet/UpdateServlet">
@@ -84,19 +85,14 @@
 								</td>
 							</tr>
 							<tr>
-								<td height="43">
+								<td>
 									内容：
 								</td>
 								<td>
-						<script type="text/javascript" src="${ctx}/fckeditor/fckeditor.js"></script>
-											<script type="text/javascript">
-				var oFCKeditor = new FCKeditor("content");
-				oFCKeditor.BasePath	= '${ctx}/fckeditor/' ;
-				oFCKeditor.Height	= 300 ;
-				oFCKeditor.ToolbarSet = 'Default';
-				oFCKeditor.Create() ;
-				
-				</script>
+									<textarea class="ckeditor" cols="80" id="content"
+										name="content" rows="10">
+										${requestScope.content}
+									</textarea>
 								</td>
 							</tr>
 							<tr>
@@ -111,10 +107,10 @@
 					</form>
 				</div>
 
-			<%@include file="right.jsp" %>
+				<%@include file="right.jsp"%>
 			</div>
 
-			<%@include file="bottom.jsp" %>
+			<%@include file="bottom.jsp"%>
 		</div>
 	</body>
 </html>

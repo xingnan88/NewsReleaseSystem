@@ -15,6 +15,7 @@
 		<meta name="description" content="My Site" />
 		<meta name="keywords" content="key, words" />
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+		<script type="text/javascript" src="js/validation-framework.js"></script>
 		<title>news</title>
 	</head>
 	<body>
@@ -22,7 +23,7 @@
 			<%@include file="head.jsp" %>
 			<div id="mid">
 				<div id="left">
-                <form id="register" method="post" action="servlet/RegisterServlet">
+                <form id="form4" method="post" action="servlet/RegisterServlet" onsubmit="return doValidate(this)">
 				  <table width="402" height="238" border="0">
 					  <tr>
 					    <td width="111">用户名：</td>

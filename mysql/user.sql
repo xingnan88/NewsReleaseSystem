@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50513
 File Encoding         : 65001
 
-Date: 2011-07-08 21:49:38
+Date: 2011-07-12 08:54:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `user` (
   `userType` varchar(50) DEFAULT NULL,
   `registerDate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -54,3 +54,7 @@ INSERT INTO `user` VALUES ('37', '大师', 'ds', 'a', 'a', 'a', 'editor', '2011-
 INSERT INTO `user` VALUES ('39', 'fdsa', 'ds ', 'dsf', 'fds', 'dfs', 'editor', '2011-07-08');
 INSERT INTO `user` VALUES ('40', '黄煜楠', 'a', 'a', 'a', 'a', 'manager', '2011-07-08');
 INSERT INTO `user` VALUES ('41', '吴琴琴', 'a', 'a', 'a', 'a', 'manager', '2011-07-08');
+INSERT INTO `user` VALUES ('42', 'fd', 'df', 'fd', 'fd', 'fd', 'user', '2011-07-09');
+INSERT INTO `user` VALUES ('43', 'fd', 'df', 'fd', 'fd', 'fd', 'user', '2011-07-09');
+INSERT INTO `user` VALUES ('44', 'fd', 'df', 'fd', 'fd', 'fd', 'user', '2011-07-09');
+INSERT INTO `user` VALUES ('45', 'fd', 'df', 'fd', 'fd', 'fd', 'user', '2011-07-09');

@@ -16,8 +16,8 @@
 		<meta name="huangyunan" content="huangyunan" />
 		<meta name="description" content="My Site" />
 		<meta name="keywords" content="key, words" />
+		<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-		<script type="text/javascript" src="/ckeditor_3.6.1/ckeditord/ckeditor.js"></script> 
 		<title>news</title>
 	</head>
 	<body>
@@ -84,15 +84,11 @@
 									内容：
 								</td>
 								<td>
-								<script type="text/javascript" src="${ctx}/fckeditor/fckeditor.js"></script>
-											<script type="text/javascript">
-				var oFCKeditor = new FCKeditor("content");
-				oFCKeditor.BasePath	= '${ctx}/fckeditor/' ;
-				oFCKeditor.Height	= 300 ;
-				oFCKeditor.ToolbarSet = 'Default';
-				oFCKeditor.Create() ;
-				</script>
+								<textarea  class="ckeditor" cols="80" id="content" name="content" rows="10">
+									</textarea>
+				
 								</td>
+								
 							</tr>
 							<tr>
 								<td height="37">
