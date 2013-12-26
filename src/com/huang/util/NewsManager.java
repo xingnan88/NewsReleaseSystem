@@ -193,4 +193,71 @@ public class NewsManager
 			util.close(conn, stam, null);
 		}
 	}
+	
+	public List<News> find(String sql, Object[] args,int count) throws SQLException
+	{
+
+		JdbcUtil util = new JdbcUtil();
+		List<News> list = new ArrayList<News>();
+		try
+		{
+			conn = util.getConnection();
+			stam = conn.prepareStatement(sql);
+			if (null != args)
+			{
+				for (int i = 1; i <= args.length; i++)
+				{
+					stam.setObject(i, args[i]);
+				}
+			}
+
+			rs = stam.executeQuery();
+			rs.afterLast();
+			News news = null;
+			
+			for(int i=0;i<count;i++)
+			{
+				if(rs.previous())
+				{
+				news = new News();
+				news.setId(Integer.parseInt(rs.getString("id")));
+				news.setTitle(rs.getString("title"));
+				news.setAuthor(rs.getString("author"));
+				news.setPubtime(rs.getDate("pubtime"));
+				news.setContent(rs.getString("content"));
+				news.setTypeId(Integer.parseInt(rs.getString("typeId")));
+				list.add(news);
+				}
+			}
+
+			return list;
+
+		} catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+			return null;
+		} finally
+		{
+			util.close(conn, stam, rs);
+		}
+	}
+	
+/*	@Test
+	public void testFind()
+	{
+		try
+		{
+			List<News> list=this.find("select * from news_title where typeId=1", null, 20);
+			System.out.print(list.size());
+			for (News news:list)
+			{
+				System.out.println(news.getTitle());
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}*/
 }

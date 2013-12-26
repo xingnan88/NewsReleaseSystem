@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <%
-	response.sendRedirect("servlet/GetNewsServlet");
+	response.sendRedirect("servlet/GetNewsServlet?userType=null");
   %>
   </body>
 </html>

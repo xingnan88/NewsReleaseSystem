@@ -50,7 +50,7 @@ public class LoginAdmin extends HttpServlet
 				else if (user.getUserType().equals("user"))
 				{
 					session.setAttribute("user", user);
-					request.getRequestDispatcher("/servlet/GetNewsServlet").forward(request, response);
+					request.getRequestDispatcher("/servlet/GetNewsServlet?userType=user").forward(request, response);
 				}
 				
 			} else

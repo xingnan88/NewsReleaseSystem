@@ -29,7 +29,7 @@
 					<br />
 					<a href="admin/postnew.jsp">继续添加新闻</a>
 					<br />
-					<a href="servlet/GetNewsServlet">查看添加后的前台显示</a>
+					<a href="servlet/GetNewsServlet?userType=user">查看前台显示</a>
 				</div>
 
 			<%@include file="right.jsp" %>

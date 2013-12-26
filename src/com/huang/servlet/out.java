@@ -34,7 +34,7 @@ public class out extends HttpServlet
 		if (session.getAttribute("user")!=null)
 		{
 			session.removeAttribute("user");
-			request.getRequestDispatcher("/servlet/GetNewsServlet").forward(request, response);
+			request.getRequestDispatcher("/servlet/GetNewsServlet?userType=null").forward(request, response);
 
 		}
 		

@@ -29,7 +29,7 @@
 					<br />
 					<a href="">重新修改</a>
 								<br />
-					<a href="servlet/GetNewsServlet">查看添加后的前台显示</a>
+					<a href="servlet/GetNewsServlet?userType=user">查看前台显示</a>
 				</div>
 
 			<%@include file="right.jsp" %>
