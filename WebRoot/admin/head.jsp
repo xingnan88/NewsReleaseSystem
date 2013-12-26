@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="com.huang.model.User"%>
+<%@ page import="com.huang.news.model.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="top">
 	<div id="logo">
@@ -81,7 +81,7 @@
 		</div>
 	</div>
 	<div id="search">
-		<form method="post" action="servlet/Search">
+		<form method="post" action="servlet/Search?userType=noUser">
 			<p>
 				<input type="text" name="search" class="search" />
 				<input type="submit" value="搜索" class="button" />

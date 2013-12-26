@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="com.huang.util.*"%>
+<%@ page import="com.huang.news.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
@@ -25,11 +25,9 @@
 					<h1>
 						添加用户成功！
 					</h1>
-					<a href="servlet/UserList?userType=${requestScope.userType}">查看用户列表</a>
-					<br />
-					<a href="admin/postnew.jsp">继续添加</a>
-					<br />
-					<a href="servlet/GetNewsServlet?userType=user">查看前台显示</a>
+				
+				
+			
 				</div>
 
 			<%@include file="right.jsp" %>

@@ -8,97 +8,97 @@
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>AddNewsServlet</servlet-name>
-    <servlet-class>com.huang.servlet.AddNewsServlet</servlet-class>
+    <servlet-class>com.huang.news.servlet.AddNewsServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>GetNewsServlet</servlet-name>
-    <servlet-class>com.huang.servlet.GetNewsServlet</servlet-class>
+    <servlet-class>com.huang.news.servlet.GetNewsServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>ReadNews</servlet-name>
-    <servlet-class>com.huang.servlet.ReadNews</servlet-class>
+    <servlet-class>com.huang.news.servlet.ReadNews</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>com.huang.servlet.RegisterServlet</servlet-class>
+    <servlet-class>com.huang.news.servlet.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>Backstage</servlet-name>
-    <servlet-class>com.huang.servlet.Backstage</servlet-class>
+    <servlet-class>com.huang.news.servlet.Backstage</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>DeleteServlet</servlet-name>
-    <servlet-class>com.huang.servlet.DeleteServlet</servlet-class>
+    <servlet-class>com.huang.news.servlet.DeleteServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UpdateServlet</servlet-name>
-    <servlet-class>com.huang.servlet.UpdateServlet</servlet-class>
+    <servlet-class>com.huang.news.servlet.UpdateServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UpdateList</servlet-name>
-    <servlet-class>com.huang.servlet.UpdateList</servlet-class>
+    <servlet-class>com.huang.news.servlet.UpdateList</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LoginAdmin</servlet-name>
-    <servlet-class>com.huang.servlet.LoginAdmin</servlet-class>
+    <servlet-class>com.huang.news.servlet.LoginAdmin</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>out</servlet-name>
-    <servlet-class>com.huang.servlet.out</servlet-class>
+    <servlet-class>com.huang.news.servlet.out</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>BackReadNews</servlet-name>
-    <servlet-class>com.huang.servlet.BackReadNews</servlet-class>
+    <servlet-class>com.huang.news.servlet.BackReadNews</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>ChangePassword</servlet-name>
-    <servlet-class>com.huang.servlet.ChangePassword</servlet-class>
+    <servlet-class>com.huang.news.servlet.ChangePassword</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UserList</servlet-name>
-    <servlet-class>com.huang.servlet.UserList</servlet-class>
+    <servlet-class>com.huang.news.servlet.UserList</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UserDelete</servlet-name>
-    <servlet-class>com.huang.servlet.UserDelete</servlet-class>
+    <servlet-class>com.huang.news.servlet.UserDelete</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UserMessage</servlet-name>
-    <servlet-class>com.huang.servlet.UserMessage</servlet-class>
+    <servlet-class>com.huang.news.servlet.UserMessage</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>Search</servlet-name>
-    <servlet-class>com.huang.servlet.Search</servlet-class>
+    <servlet-class>com.huang.news.servlet.Search</servlet-class>
   </servlet>
 
 
