@@ -2,6 +2,7 @@ package com.huang.model;
 
 public class User
 {
+	private int id;
 	private String userName;
 	private String password;
 	private String email;
@@ -24,14 +25,6 @@ public class User
 	{
 		this.password = password;
 	}
-	public String getEmial()
-	{
-		return email;
-	}
-	public void setEmial(String emial)
-	{
-		this.email = emial;
-	}
 	public String getQuestion()
 	{
 		return question;
@@ -47,6 +40,22 @@ public class User
 	public void setAnswer(String answer)
 	{
 		this.answer = answer;
+	}
+	public int getId()
+	{
+		return id;
+	}
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	public String getEmail()
+	{
+		return email;
+	}
+	public void setEmail(String email)
+	{
+		this.email = email;
 	}
 
 	
