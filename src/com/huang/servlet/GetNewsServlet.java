@@ -18,15 +18,16 @@ public class GetNewsServlet extends HttpServlet
 		try
 		{
 			NewsManager manager = new NewsManager();
-			request.setAttribute("data1", manager.find("select * from news_title where typeid=1", null));
-			request.setAttribute("data2", manager.find("select * from news_title where typeid=2", null));
-			request.setAttribute("data3", manager.find("select * from news_title where typeid=3", null));
-			request.setAttribute("data4", manager.find("select * from news_title where typeid=4", null));
-			request.setAttribute("data5", manager.find("select * from news_title where typeid=5", null));
-			request.setAttribute("data6", manager.find("select * from news_title where typeid=6", null));
-			request.setAttribute("data7", manager.find("select * from news_title where typeid=7", null));
-			request.setAttribute("data8", manager.find("select * from news_title where typeid=8", null));
-			request.getRequestDispatcher("/news4.jsp").forward(request, response);
+			request.setAttribute("data1", manager.find("select * from news_title where typeId=1", null));
+			request.setAttribute("data2", manager.find("select * from news_title where typeId=2", null));
+			request.setAttribute("data3", manager.find("select * from news_title where typeId=3", null));
+			request.setAttribute("data4", manager.find("select * from news_title where typeId=4", null));
+			request.setAttribute("data5", manager.find("select * from news_title where typeId=5", null));
+			request.setAttribute("data6", manager.find("select * from news_title where typeId=6", null));
+			request.setAttribute("data7", manager.find("select * from news_title where typeId=7", null));
+			request.setAttribute("data8", manager.find("select * from news_title where typeId=8", null));
+			request.getRequestDispatcher("/news.jsp").forward(request, response);
+			
 		}
 		catch(Exception e)
 		{

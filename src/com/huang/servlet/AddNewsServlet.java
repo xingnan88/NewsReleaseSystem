@@ -23,22 +23,45 @@ public class AddNewsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		NewsManager manager=new NewsManager();
-		Encoding enc=new Encoding();
-	    String title=enc.encoding(request.getParameter("title"));
-	    int type=Integer.parseInt(enc.encoding(request.getParameter("type")));
-	    String content=enc.encoding(request.getParameter("content"));                                                                                                                                                                  
-	    String sql="insert into news_title(title,typeid,content)values (?,?,?)";
+		NewsManager manager=new NewsManager();	 
+	    String title=Encoding.encoding(request.getParameter("title"));
+	    String author=Encoding.encoding(request.getParameter("author"));
+	    String type=Encoding.encoding(request.getParameter("type"));
+	    String content=Encoding.encoding(request.getParameter("content"));
+	    int typeId = this.typeValue(type);
+	    String sql="insert into news_title(title,content,author,typeId)values (?,?,?,?)";
+	  
 	    try
 		{
-			manager.update(sql,new Object[]{title,type,content});
+			manager.update(sql,new Object[]{title,content,author,typeId});
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
 			
 		}
 	    
-	    response.sendRedirect("/news2.1/news4.jsp");
+		request.getRequestDispatcher("/addSuccess.jsp").forward(request, response);
 	}
-
+	
+	public int typeValue(String type)
+	{
+		if (type.equals("今日焦点"))
+			return 1;
+		else if (type.equals("国内新闻")) {
+			return 2;
+		}else if (type.equals("国际新闻")) {
+			return 3;
+		}else if (type.equals("体育")) {
+			return 4;
+		}else if (type.equals("军事")) {
+			return 5;
+		}else if (type.equals("教育")) {
+			return 6;
+		}else if (type.equals("娱乐")) {
+			return 7;
+		}else if (type.equals("社会")) {
+			return 8;
+		}
+		return 0;
+	}
 }

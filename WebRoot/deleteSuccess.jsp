@@ -1,25 +1,27 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page import="com.jxust.news.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-
-    <title>readNews</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="/news2.1/style.css" media="screen" />
-
-  </head>
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <base href="<%=basePath%>">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="huangyunan" content="huangyunan" />
+	<meta name="description" content="My Site" />
+	<meta name="keywords" content="key, words" />	
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<title>news</title>
+</head>
 <body>
 	<div id="content">
       <div id="top">	
 		<div id="logo">
-        <div class="login"><a href="#">注册</a></div>
+        <div class="login"><a href="login.jsp">注册</a></div>
         <div class="login"><a href="#">登录</a></div>
         </div>
 		<div id="topics">
@@ -52,16 +54,15 @@
 			</div>		
             <div id="mid">		
 		<div id="left">
-				<h1>${requestScope.news.title}</h1>
-				<br/>
-				${requestScope.news.content}
+		  <h1>删除新闻成功！		</h1>
+          <a href="servlet/Backstage">回到后台新闻列表</a>
 		</div>	
         
 		<div id="right">
 			<div class="right_articles">
               <table border="0">
               <tr><td><a href=""><b>体育</b></a></td></tr>
-             
+          
     		  </table>
 		    </div>
 			<div class="right_articles">
@@ -73,7 +74,7 @@
 			<div class="right_articles">
 			<table border="0">
               <tr><td><a href=""><b>教育</b></a></td></tr>		
-
+             
              </table>
             </div>
 			

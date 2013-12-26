@@ -1,23 +1,27 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.jxust.news.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <base href="<%=basePath%>">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="huangyunan" content="huangyunan" />
 	<meta name="description" content="My Site" />
 	<meta name="keywords" content="key, words" />	
-	<link rel="stylesheet" type="text/css" href="/news2.1/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 	<title>news</title>
 </head>
 <body>
 	<div id="content">
       <div id="top">	
 		<div id="logo">
-        <div class="login"><a href="/news2.1/login.jsp">注册</a></div>
+        <div class="login"><a href="login.jsp">注册</a></div>
         <div class="login"><a href="#">登录</a></div>
         </div>
 		<div id="topics">
@@ -208,10 +212,10 @@ window.onload=function(){
 					<table border="0">
 					 <c:forEach items="${requestScope.data1}" var="news1" varStatus="status1" >
 					 <c:if test="${status1.index%2==0}">
-					 <tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news1.id }">${news1.title}</a></td>
+					 <tr><td><a href="servlet/ReadNews?titleid=${news1.id }">${news1.title}</a></td>
 					 </c:if>
 					 <c:if test="${status1.index%2!=0}">
-					 <td><a href="/news2.1/servlet/ReadNews?titleid=${news1.id }">${news1.title}</a></td>
+					 <td><a href="servlet/ReadNews?titleid=${news1.id }">${news1.title}</a></td>
 					 </c:if>					
                      </c:forEach>
 					</table>   
@@ -225,7 +229,7 @@ window.onload=function(){
 			    <tr><td><b><a href="#" class="title">国内新闻</a></b></td></tr>
 				<tr><td><img src="${pageContext.request.contextPath}/images/guonei.jpg" alt="Image" width="120" height="88" class="image" title="guonei" /></td></tr>		
  				<c:forEach items="${requestScope.data2}" var="news2">
- 				<tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news2.id }">${news2.title }</a></td></tr> 					
+ 				<tr><td><a href="servlet/ReadNews?titleid=${news2.id }">${news2.title}</a></td></tr> 					
   				</c:forEach>	
  				</table>
           </div>
@@ -234,7 +238,7 @@ window.onload=function(){
 			<tr><td><b><a href="" class="title">国际新闻</a></b></td></tr>
  			<tr><td><img src="${pageContext.request.contextPath}/images/guowai.jpg" alt="Image" width="120" height="88" class="image" title="guowai" /></td></tr>      
  			<c:forEach items="${requestScope.data3}" var="news3">
- 			<tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news3.id }">${news3.title }</a></td></tr>	
+ 			<tr><td><a href="servlet/ReadNews?titleid=${news3.id }">${news3.title }</a></td></tr>	
  			</c:forEach>
  			</table>    
           </div>
@@ -243,7 +247,7 @@ window.onload=function(){
 			<tr><td><b><a href="" class="title">社会</a></b></td></tr>
  			<tr><td><img src="${pageContext.request.contextPath}/images/mingsheng.jpg" alt="Image" width="120" height="88" class="image" title="mingsheng" /></td></tr>      
  			<c:forEach items="${requestScope.data8}" var="news8">
- 			<tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news8.id }">${news8.title }</a></td></tr>	
+ 			<tr><td><a href="servlet/ReadNews?titleid=${news8.id }">${news8.title }</a></td></tr>	
  			</c:forEach>
 		  </table>
 			</div>
@@ -255,10 +259,10 @@ window.onload=function(){
               <tr><td><a href=""><b>体育</b></a></td></tr>
               <c:forEach items="${requestScope.data4}" var="news4" varStatus="status4">
               <c:if test="${status4.count==1}">
-              <tr><td><img src="${pageContext.request.contextPath}/images/tiyu.jpg" alt="Image" title="tiyu" class="image" /><a href="/news2.1/servlet/ReadNews?titleid=${news4.id }">${news4.title }</a></td></tr>
+              <tr><td><img src="${pageContext.request.contextPath}/images/tiyu.jpg" alt="Image" title="tiyu" class="image" /><a href="servlet/ReadNews?titleid=${news4.id }">${news4.title }</a></td></tr>
   			  </c:if>
   			  <c:if test="${status4.count!=1}">
-  			  <tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news4.id }">${news4.title }</a></td></tr>
+  			  <tr><td><a href="servlet/ReadNews?titleid=${news4.id }">${news4.title }</a></td></tr>
    			  </c:if>
    			  </c:forEach>
     		  </table>
@@ -268,10 +272,10 @@ window.onload=function(){
             <tr><td><a href=""><b>军事</b></a></td></tr>	 
 			<c:forEach items="${requestScope.data5}" var="news5" varStatus="status5">
               <c:if test="${status5.count==1}">
-              <tr><td><img src="${pageContext.request.contextPath}/images/junshi.jpg" alt="Image" title="tiyu" class="image" /><a href="/news2.1/servlet/ReadNews?titleid=${news5.id }">${news5.title }</a></td></tr>
+              <tr><td><img src="${pageContext.request.contextPath}/images/junshi.jpg" alt="Image" title="tiyu" class="image" /><a href="ervlet/ReadNews?titleid=${news5.id }">${news5.title }</a></td></tr>
   			  </c:if>
   			  <c:if test="${status5.count!=1}">
-  			  <tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news5.id }">${news5.title }</a></td></tr>
+  			  <tr><td><a href="servlet/ReadNews?titleid=${news5.id }">${news5.title }</a></td></tr>
    			  </c:if>
    			  </c:forEach>
 			</table>
@@ -281,10 +285,10 @@ window.onload=function(){
               <tr><td><a href=""><b>教育</b></a></td></tr>		
               <c:forEach items="${requestScope.data6}" var="news6" varStatus="status6">
               <c:if test="${status6.count==1}">
-              <tr><td><img src="${pageContext.request.contextPath}/images/jiaoyu.jpg" alt="Image" title="tiyu" class="image" /><a href="/news2.1/servlet/ReadNews?titleid=${news6.id }">${news6.title }</a></td></tr>
+              <tr><td><img src="${pageContext.request.contextPath}/images/jiaoyu.jpg" alt="Image" title="tiyu" class="image" /><a href="servlet/ReadNews?titleid=${news6.id }">${news6.title }</a></td></tr>
   			  </c:if>
   			  <c:if test="${status6.count!=1}">
-  			  <tr><td><a href="/news2.1/servlet/ReadNews?titleid=${news6.id }">${news6.title }</a></td></tr>
+  			  <tr><td><a href="servlet/ReadNews?titleid=${news6.id }">${news6.title }</a></td></tr>
    			  </c:if>
    			  </c:forEach>
              </table>

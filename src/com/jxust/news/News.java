@@ -6,7 +6,7 @@ public class News
 	private String title;
 	private String content;
 	private String pubtime;
-	private int typeid;
+	private int typeId;
 	public int getId()
 	{
 		return id;
@@ -39,14 +39,12 @@ public class News
 	{
 		this.pubtime = pubtime;
 	}
-	public int getTypeid()
+	public int getTypeId()
 	{
-		return typeid;
+		return typeId;
 	}
-	public void setTypeid(int typeid)
+	public void setTypeId(int typeId)
 	{
-		this.typeid = typeid;
-	}
-	
-	
+		this.typeId = typeId;
+	}	
 }
