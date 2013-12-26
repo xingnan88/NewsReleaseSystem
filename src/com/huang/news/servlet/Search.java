@@ -36,7 +36,7 @@ public class Search extends HttpServlet
 		{
 			List<News> news = nm.find(sql, new Object[]
 			{ key });
-			request.setAttribute("news", news);
+			request.setAttribute("data", news);
 			request.setAttribute("size", news.size());
 			System.out.println(news.size());
 			if (userType.equals("user"))
@@ -44,7 +44,7 @@ public class Search extends HttpServlet
 				request.getRequestDispatcher("/searchResult.jsp").forward(request, response);
 			} else
 			{
-				request.getRequestDispatcher("/admin/searchResult.jsp").forward(request, response);
+				request.getRequestDispatcher("/admin/index_editor.jsp").forward(request, response);
 			}
 		} catch (SQLException e)
 		{

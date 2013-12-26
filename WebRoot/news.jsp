@@ -1,15 +1,15 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 	<%@ include file="head.jsp" %>
 			<div id="mid">
 				<div id="left">
 					<div class="subheader">
 						<p>
-							åœ¨è¢«åŸ‹é•¿è¾¾8ä¸ªå¤šå°æ—¶çš„æ¼†é»‘ç»å¢ƒé‡Œï¼Œä¸€ä½æ¯äº²æ‹¼å‘½æ‰˜ä¸¾èµ·æ€€ä¸­4å²åŠçš„å„¿å­ï¼Œç›´åˆ°æ•‘æ´äººå‘˜èµ¶åˆ°ã€‚ç¾éš¾å½“å¤´ï¼Œä¸ºäº†æŠ¤å«è‡ªå·±çš„å­©å­ï¼Œ33å²çš„å¹´è½»å¦ˆå¦ˆçˆ†å‘å‡ºäº†æƒŠäººçš„æ¯…åŠ›!!!!!
+							ÔÚ±»Âñ³¤´ï8¸ö¶àĞ¡Ê±µÄÆáºÚ¾ø¾³Àï£¬Ò»Î»Ä¸Ç×Æ´ÃüÍĞ¾ÙÆğ»³ÖĞ4Ëê°ëµÄ¶ù×Ó£¬Ö±µ½¾ÈÔ®ÈËÔ±¸Ïµ½¡£ÔÖÄÑµ±Í·£¬ÎªÁË»¤ÎÀ×Ô¼ºµÄº¢×Ó£¬33ËêµÄÄêÇáÂèÂè±¬·¢³öÁË¾ªÈËµÄÒãÁ¦!!!!!
 						</p>
 					</div>
 					<div class="left_articles">
 						<h2>
-							ä»Šæ—¥ç„¦ç‚¹
+							½ñÈÕ½¹µã
 						</h2>
 						<p>
 							&nbsp;
@@ -63,19 +63,19 @@
 
 	var TransformView = Class.create();
 	TransformView.prototype = {
-		//å®¹å™¨å¯¹è±¡,æ»‘åŠ¨å¯¹è±¡,åˆ‡æ¢å‚æ•°,åˆ‡æ¢æ•°é‡
+		//ÈİÆ÷¶ÔÏó,»¬¶¯¶ÔÏó,ÇĞ»»²ÎÊı,ÇĞ»»ÊıÁ¿
 		initialize : function(container, slider, parameter, count, options) {
 			if (parameter <= 0 || count <= 0)
 				return;
 			var oContainer = $(container), oSlider = $(slider), oThis = this;
 
-			this.Index = 0;//å½“å‰ç´¢å¼•
+			this.Index = 0;//µ±Ç°Ë÷Òı
 
-			this._timer = null;//å®šæ—¶å™¨
-			this._slider = oSlider;//æ»‘åŠ¨å¯¹è±¡
-			this._parameter = parameter;//åˆ‡æ¢å‚æ•°
-			this._count = count || 0;//åˆ‡æ¢æ•°é‡
-			this._target = 0;//ç›®æ ‡å‚æ•°
+			this._timer = null;//¶¨Ê±Æ÷
+			this._slider = oSlider;//»¬¶¯¶ÔÏó
+			this._parameter = parameter;//ÇĞ»»²ÎÊı
+			this._count = count || 0;//ÇĞ»»ÊıÁ¿
+			this._target = 0;//Ä¿±ê²ÎÊı
 
 			this.SetOptions(options);
 
@@ -93,22 +93,22 @@
 			oSlider.style.position = "absolute";
 			oSlider.style.top = oSlider.style.left = 0;
 		},
-		//è®¾ç½®é»˜è®¤å±æ€§
+		//ÉèÖÃÄ¬ÈÏÊôĞÔ
 		SetOptions : function(options) {
-			this.options = {//é»˜è®¤å€¼
-				Up : true,//æ˜¯å¦å‘ä¸Š(å¦åˆ™å‘å·¦)
-				Step : 5,//æ»‘åŠ¨å˜åŒ–ç‡
-				Time : 10,//æ»‘åŠ¨å»¶æ—¶
-				Auto : true,//æ˜¯å¦è‡ªåŠ¨è½¬æ¢
-				Pause : 2000,//åœé¡¿æ—¶é—´(Autoä¸ºtrueæ—¶æœ‰æ•ˆ)
+			this.options = {//Ä¬ÈÏÖµ
+				Up : true,//ÊÇ·ñÏòÉÏ(·ñÔòÏò×ó)
+				Step : 5,//»¬¶¯±ä»¯ÂÊ
+				Time : 10,//»¬¶¯ÑÓÊ±
+				Auto : true,//ÊÇ·ñ×Ô¶¯×ª»»
+				Pause : 2000,//Í£¶ÙÊ±¼ä(AutoÎªtrueÊ±ÓĞĞ§)
 				onStart : function() {
-				},//å¼€å§‹è½¬æ¢æ—¶æ‰§è¡Œ
+				},//¿ªÊ¼×ª»»Ê±Ö´ĞĞ
 				onFinish : function() {
-				}//å®Œæˆè½¬æ¢æ—¶æ‰§è¡Œ
+				}//Íê³É×ª»»Ê±Ö´ĞĞ
 			};
 			Object.extend(this.options, options || {});
 		},
-		//å¼€å§‹åˆ‡æ¢è®¾ç½®
+		//¿ªÊ¼ÇĞ»»ÉèÖÃ
 		Start : function() {
 			if (this.Index < 0) {
 				this.Index = this._count - 1;
@@ -120,7 +120,7 @@
 			this.onStart();
 			this.Move();
 		},
-		//ç§»åŠ¨
+		//ÒÆ¶¯
 		Move : function() {
 			clearTimeout(this._timer);
 			var oThis = this, style = this.Up ? "top" : "left", iNow = parseInt(this._slider.style[style]) || 0, iStep = this
@@ -142,7 +142,7 @@
 				}
 			}
 		},
-		//è·å–æ­¥é•¿
+		//»ñÈ¡²½³¤
 		GetStep : function(iTarget, iNow) {
 			var iStep = (iTarget - iNow) / this.Step;
 			if (iStep == 0)
@@ -151,7 +151,7 @@
 				return (iStep > 0 ? 1 : -1);
 			return iStep;
 		},
-		//åœæ­¢
+		//Í£Ö¹
 		Stop : function(iTarget, iNow) {
 			clearTimeout(this._timer);
 			this._slider.style[this.Up ? "top" : "left"] = this._target + "px";
@@ -173,7 +173,7 @@
 				Each(objs, function(o, i) {
 					o.className = tv.Index == i ? "on" : "";
 				})
-			}//æŒ‰é’®æ ·å¼
+			}//°´Å¥ÑùÊ½
 			});
 
 		tv.Start();
@@ -220,7 +220,7 @@
 						<table border="0">
 							<tr>
 								<td>
-									<b><a class="title">å›½å†…æ–°é—»</a> </b>
+									<b><a class="title">¹úÄÚĞÂÎÅ</a> </b>
 								</td>
 							</tr>
 							<tr>
@@ -243,7 +243,7 @@
 						<table border="0">
 							<tr>
 								<td>
-									<b><a  class="title">å›½é™…æ–°é—»</a> </b>
+									<b><a  class="title">¹ú¼ÊĞÂÎÅ</a> </b>
 								</td>
 							</tr>
 							<tr>
@@ -267,7 +267,7 @@
 						<table border="0">
 							<tr>
 								<td>
-									<b><a  class="title">ç¤¾ä¼š</a> </b>
+									<b><a  class="title">Éç»á</a> </b>
 								</td>
 							</tr>
 							<tr>
@@ -295,7 +295,7 @@
 						<table border="0">
 							<tr>
 								<td>
-									<a ><b>ä½“è‚²</b> </a>
+									<a ><b>ÌåÓı</b> </a>
 								</td>
 							</tr>
 							<c:forEach items="${requestScope.data4}" var="news4"
@@ -325,7 +325,7 @@
 						<table border="0">
 							<tr>
 								<td>
-									<a ><b>å†›äº‹</b> </a>
+									<a ><b>¾üÊÂ</b> </a>
 								</td>
 							</tr>
 							<c:forEach items="${requestScope.data5}" var="news5"
@@ -356,7 +356,7 @@
 						<table border="0">
 							<tr>
 								<td>
-									<a ><b>æ•™è‚²</b> </a>
+									<a ><b>½ÌÓı</b> </a>
 								</td>
 							</tr>
 							<c:forEach items="${requestScope.data6}" var="news6"

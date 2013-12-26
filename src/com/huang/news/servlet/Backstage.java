@@ -30,23 +30,49 @@ public class Backstage extends HttpServlet
 		{
 			NewsManager manager = new NewsManager();
 			if (data==1)
+			{
 				request.setAttribute("data", manager.find("select * from news where typeid=1", null));
-			else if (data==2)
+				request.setAttribute("type", "今日焦点");
+			}
+			else if (data==2){
 				request.setAttribute("data", manager.find("select * from news where typeid=2", null));
-			else if (data==3)
+				request.setAttribute("type", "国内新闻");
+				
+			}
+			else if (data==3){
 				request.setAttribute("data", manager.find("select * from news where typeid=3", null));
-			else if (data==4)
+				request.setAttribute("type", "国际新闻");
+				
+			}
+			else if (data==4){
 				request.setAttribute("data", manager.find("select * from news where typeid=4", null));
-			else if (data==5)
+				request.setAttribute("type", "今日焦点");
+				
+			}
+			else if (data==5){
 				request.setAttribute("data", manager.find("select * from news where typeid=5", null));
-			else if (data==6)
+				request.setAttribute("type", "体育");
+				
+			}
+			else if (data==6){
 				request.setAttribute("data", manager.find("select * from news where typeid=6", null));
-			else if (data==7)
+				request.setAttribute("type", "军事");
+				
+			}
+			else if (data==7){
 				request.setAttribute("data", manager.find("select * from news where typeid=7", null));
-			else if (data==8)
+				request.setAttribute("type", "教育");
+				
+			}
+			else if (data==8){
 				request.setAttribute("data", manager.find("select * from news where typeid=8", null));
+				request.setAttribute("type", "娱乐");
+				
+			}
+			else if (data==0)
+				request.setAttribute("data", manager.find("select * from news ", null));
 			
-			request.getRequestDispatcher("/admin/backstage.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/index_editor.jsp").forward(request, response);
 		}
 		catch(Exception e)
 		{

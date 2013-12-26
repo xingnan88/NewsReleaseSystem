@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <%@ include file="head.jsp"%>
 <div id="mid">
 	<div id="left">
@@ -9,7 +9,7 @@
 				<tr>
 
 					<td width="83" height="37">
-						鐢ㄦ埛鍚嶏細
+						用户名：
 					</td>
 					<td width="501">
 						${user.userName}
@@ -18,7 +18,7 @@
 				</tr>
 				<tr>
 					<td width="83" height="37">
-						鏃у瘑鐮侊細
+						旧密码：
 					</td>
 					<td width="501">
 						<label for="oldPassword"></label>
@@ -27,7 +27,7 @@
 				</tr>
 				<tr>
 					<td height="37">
-						鏂板瘑鐮侊細
+						新密码：
 					</td>
 					<td>
 						<label for="newPassword">
@@ -37,7 +37,7 @@
 				</tr>
 				<tr>
 					<td height="37">
-						閲嶅鏂板瘑鐮侊細
+						重复新密码：
 					</td>
 					<td>
 						<label for="newPassword2"></label>
@@ -47,10 +47,10 @@
 
 				<tr>
 					<td height="37">
-						<input type="submit" name="submit" id="submit" value="鎻愪氦" />
+						<input type="submit" name="submit" id="submit" value="提交" />
 					</td>
 					<td height="37">
-						<input type="reset" name="reset" id="reset" value="閲嶇疆" />
+						<input type="reset" name="reset" id="reset" value="重置" />
 					</td>
 				</tr>
 			</table>

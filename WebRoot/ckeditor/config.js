@@ -5,7 +5,19 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 CKEDITOR.editorConfig = function( config )
 {
-	config.language = 'zh-cn'; // 配置语言  
-    config.width = 'auto'; // 宽度  
-    config.height = '200px'; // 高度  
+	// Define changes to default configuration here. For example:
+	// config.language = 'fr';
+	// config.uiColor = '#AADC6E';
+    config.toolbar = 'Full';
+
+    config.toolbar_Full = [
+       ['Preview','-','Templates'],
+       ['Cut','Copy','Paste','-','Print'],
+       ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+       '/',
+       ['Styles','Format','Font','FontSize'],
+       '/',
+       ['Bold','Italic','Underline'],
+       ['TextColor','BGColor'],['Image']
+    ]; 
 };

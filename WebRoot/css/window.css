@@ -1,0 +1,34 @@
+#content{
+    background: url("../images/login/images/modal-gloss.png") no-repeat scroll -200px -80px #EEEEEE;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    left: 50%;
+    margin-left: -300px;
+    padding: 30px 40px 34px;
+    position: absolute;
+    top: 100px;
+    display:none;
+    width: 520px;
+    z-index: 101
+}
+
+#win{ 
+    padding-top:10px;
+    padding-left:30px;
+}
+
+#title{  
+    padding-top:2px;
+    padding-left:30px;
+}
+    .close{
+    color: #AAAAAA;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 0.5;
+    position: absolute;
+    right: 11px;
+    top: 8px;
+    }
+	

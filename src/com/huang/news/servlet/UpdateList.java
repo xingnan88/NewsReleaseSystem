@@ -31,7 +31,7 @@ public class UpdateList extends HttpServlet
 			String type=this.type(news.getTypeId());
 			request.setAttribute("news", news);
 			request.setAttribute("type", type);
-			request.getRequestDispatcher("/admin/update.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/editor_updateNews.jsp").forward(request, response);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();

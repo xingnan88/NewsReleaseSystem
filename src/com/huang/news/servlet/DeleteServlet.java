@@ -22,6 +22,9 @@ public class DeleteServlet extends HttpServlet
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		response.setContentType("text/html;charset=gbk");
+		PrintWriter out=response.getWriter();
+		
 		NewsManager nm=new NewsManager();
 		int id=Integer.parseInt(Encoding.encoding(request.getParameter("id")));
 		String sql="delete from news where id=?";
@@ -31,9 +34,9 @@ public class DeleteServlet extends HttpServlet
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
+			out.println("É¾³ýÊ§°Ü");
 		}
-		
-		request.getRequestDispatcher("/admin/deleteSuccess.jsp").forward(request, response);
+		out.println("É¾³ý³É¹¦");
+		//request.getRequestDispatcher("/admin/index_editor.jsp").forward(request, response);
 	}
-
 }

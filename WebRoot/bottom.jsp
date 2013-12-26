@@ -1,13 +1,13 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <div id="bottom">
 	<div id="footer" align="center">
-		<a href="">æ–°é—»ç½‘ç®€ä»‹</a> |
-		<a href=""> å…³äºŽæˆ‘ä»¬</a> |
-		<a href=""> è”ç³»æˆ‘ä»¬</a> |
-		<a href=""> æˆ‘è¦é“¾æŽ¥</a> |
-		<a href=""> ç‰ˆæƒå£°æ˜Ž</a> |
-		<a href=""> å¹¿å‘ŠæœåŠ¡</a> |
-		<a href="admin/login.jsp">åŽå°ç™»é™†</a>
+		<a href="">ÐÂÎÅÍø¼ò½é</a> |
+		<a href=""> ¹ØÓÚÎÒÃÇ</a> |
+		<a href=""> ÁªÏµÎÒÃÇ</a> |
+		<a href=""> ÎÒÒªÁ´½Ó</a> |
+		<a href=""> °æÈ¨ÉùÃ÷</a> |
+		<a href=""> ¹ã¸æ·þÎñ</a> |
+		<a href="admin/login.jsp">ºóÌ¨µÇÂ½</a>
 	</div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -6,13 +6,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>   
-    <title>注册</title>   
+    <title>ע��</title>   
     <base href="<%=basePath%>"> 
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<script type="text/javascript" src="js/jquery-1.6.2.js"></script>
+	<script type="text/javascript" src="js/registerValidate.js"></script>
 	<style type="text/css">
 	body{
   	 background-image:url(images/bg1.jpg);
@@ -72,54 +74,52 @@ input.button{
    background: URL(images/bg_button.jpg) repeat-x left;
 }
 </style>
-<script type="text/javascript" src="js/validation-framework.js"></script>
+
   </head>
   
   <body>
 <div id="pageHolder">
   <div class="action">
   	<div id="error" style="font-weight:bold;color:red;"></div>
-    <form id="form3" name="form3" method="POST" action="servlet/RegisterServlet" onsubmit="return doValidate(this)">
-      <h2>注册</h2>
-      <p>欢迎注册，注册过程将不会收取您任何费用。我们承诺保护您的信息安全，不会将它提供给任何第三方。</p>
-      <input type="hidden" name="userType" value="user"/>
+      <h2>ע��</h2>
+      <p>��ӭע�ᣬע����̽�������ȡ���κη��á����ǳ�ŵ����������Ϣ��ȫ�����Ὣ���ṩ���κε�������</p>
+      <input type="hidden" name="userType" value="user" id="userType"/>
       <table>
         <tr>
-          <td style="vertical-align:top"><label for="username">用户名:</label></td>
+          <td style="vertical-align:top"><label for="username">�û���:</label></td>
           <td><input type="text" name="userName" maxlength="99" value="" style="width:150px" class="textInput" id="userName" />
            </td>
         </tr>
         <tr>
-          <td><label for="password">密码:</label></td>
+          <td><label for="password">����:</label></td>
           <td><input type="password" name="password" maxlength="99" value="" class="textInput" id="password"/></td>
         </tr>
         <tr>
-          <td><label for="passwordAgain">确认密码:</label></td>
+          <td><label for="passwordAgain">ȷ������:</label></td>
           <td><input type="password" name="password2" maxlength="99" value="" class="textInput" id="password2" /></td>
         </tr>
         <tr>
-          <td><label for="email">电子邮件:</label></td>
+          <td><label for="email">�����ʼ�:</label></td>
           <td><input type="text" name="email" value="" style="width:250px" class="textInput" id="email" /></td>
         </tr>
       </table>
-      <p>请设置机密问题，当此帐号修改密码时会要求您回答机密问题，这将确保是您本人在进行密码修改操作，使您的帐号更安全。</p>
+      <p>�����û������⣬�����ʺ��޸�����ʱ��Ҫ�����ش�������⣬�⽫ȷ�����������ڽ��������޸Ĳ�����ʹ�����ʺŸ���ȫ��</p>
       <table>
         <tr>
-          <td style="vertical-align:top"><label for="secretQ">密码问题:</label></td>
+          <td style="vertical-align:top"><label for="secretQ">��������:</label></td>
           <td><input type="text" name="question" value="" style="width:300px" class="textInput" id="question" />
             <br />
-            <span class="note">输入一个你可以很容易回答，别人却很难猜到答案的问题。例如"我的一个宠物的名字叫什么？"</span></td>
+            <span class="note">����һ������Ժ����׻ش𣬱���ȴ���Ѳµ��𰸵����⡣����"�ҵ�һ����������ֽ�ʲô��"</span></td>
         </tr>
         <tr>
-          <td><label for="answer">问题答案:</label></td>
+          <td><label for="answer">�����:</label></td>
           <td><input type="text" name="answer" value="" style="width:300px" class="textInput" id="answer" /></td>
         </tr>
       </table>
       <div class="formAction">
-        <input type="submit" value="提交" class="button" />
-        <input type="reset" value="重置" class="button" />
+        <input type="button" value="�ύ" class="button" onclick="register()"/>
+        <input type="reset" value="����" class="button" />
       </div>
-    </form>
   </div>
 </div>
 </body>

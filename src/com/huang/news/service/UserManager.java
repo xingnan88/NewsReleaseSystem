@@ -20,7 +20,7 @@ public class UserManager
 		ud.update(userName, userType, newPassword);
 	}
 
-	public List<User> find(String userType)
+	public List<User> find(String userType) 
 	{
 		return ud.find(userType);
 	}
@@ -33,5 +33,10 @@ public class UserManager
 	public void delete(String sql, int id) throws SQLException
 	{
 		ud.delete(sql, id);
+	}
+	
+	public void add(String sql, Object[] args) throws SQLException
+	{
+		ud.add(sql, args);
 	}
 }

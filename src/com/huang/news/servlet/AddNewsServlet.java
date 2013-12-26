@@ -1,6 +1,8 @@
 package com.huang.news.servlet;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -24,6 +26,9 @@ public class AddNewsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		response.setContentType("text/html;charset=gbk");
+		PrintWriter out=response.getWriter();
+		
 		NewsManager manager=new NewsManager();	 
 	    String title=Encoding.encoding(request.getParameter("title"));
 	    String author=Encoding.encoding(request.getParameter("author"));
@@ -39,10 +44,10 @@ public class AddNewsServlet extends HttpServlet {
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
-			
+			out.println("添加失败！");
 		}
-	    
-		request.getRequestDispatcher("/admin/addSuccess.jsp").forward(request, response);
+		out.println("添加成功！");
+//		request.getRequestDispatcher("/admin/addSuccess.jsp").forward(request, response);
 	}
 	
 	public int typeValue(String type)

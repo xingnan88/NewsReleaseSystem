@@ -30,8 +30,8 @@ public class BackReadNews extends HttpServlet
 		try
 		{
 			News news = manager.get(titleid);
-			request.setAttribute("news", news);
-			request.getRequestDispatcher("/admin/rdnews.jsp").forward(request, response);
+			request.setAttribute("rnews", news);
+			request.getRequestDispatcher("/admin/editor_readNews.jsp").forward(request, response);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();

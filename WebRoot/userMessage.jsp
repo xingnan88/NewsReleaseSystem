@@ -1,11 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <%@ include file="head.jsp"%>
 <div id="mid">
 	<div id="left">
 		<table width="307" border="0">
 			<tr>
 				<td width="95">
-					ç”¨æˆ·åï¼š
+					ÓÃ»§Ãû£º
 				</td>
 				<td width="202">
 					${user.userName }
@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td>
-					ç”µå­é‚®ä»¶ï¼š
+					µç×ÓÓÊ¼ş£º
 				</td>
 				<td>
 					${user.email}
@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td>
-					æ³¨å†Œæ—¶é—´ï¼š
+					×¢²áÊ±¼ä£º
 				</td>
 				<td>
 					${user.registerDate }
@@ -33,7 +33,7 @@
 				</td>
 				<td>
 					<h3>
-						<a href="changePassword.jsp?user=${user}">ä¿®æ”¹å¯†ç </a>
+						<a href="changePassword.jsp?user=${user}">ĞŞ¸ÄÃÜÂë</a>
 					</h3>
 				</td>
 			</tr>

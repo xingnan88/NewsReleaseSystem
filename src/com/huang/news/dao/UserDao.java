@@ -183,6 +183,32 @@ public class UserDao
 			util.close(conn, stam, null);
 		}
 	}
+	
+	public void add(String sql, Object[] args) throws SQLException
+	{
+		JdbcUtil util = new JdbcUtil();
+		try
+		{
+			conn = util.getConnection();
+			stam = conn.prepareStatement(sql);
+
+			if (null != args)
+			{
+				for (int i = 0; i < args.length; i++)
+				{
+					stam.setObject(i + 1, args[i]);
+				}
+			}
+
+			stam.executeUpdate();
+		} catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		} finally
+		{
+			util.close(conn, stam, null);
+		}
+	}
 
 	// @Test
 	// public void TestfindUser()

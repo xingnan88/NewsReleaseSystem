@@ -1,6 +1,7 @@
 package com.huang.news.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import sun.org.mozilla.javascript.internal.EcmaError;
 
 import com.huang.news.service.NewsManager;
+import com.huang.news.service.UserManager;
 import com.huang.news.util.Encoding;
+import com.huang.news.util.Md5;
 
 public class RegisterServlet extends HttpServlet
 {
@@ -29,10 +32,14 @@ public class RegisterServlet extends HttpServlet
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		NewsManager loginManager = new NewsManager();
+		response.setContentType("text/html;charset=gbk");
+		PrintWriter out=response.getWriter();
+		UserManager userManager = new UserManager();
 		
 		String userName=Encoding.encoding(request.getParameter("userName"));
-		String password=Encoding.encoding(request.getParameter("password"));
+		String passwordMd5=Encoding.encoding(request.getParameter("password"));
+		String password=Md5.md5s(passwordMd5);
+		
 		String email=Encoding.encoding(request.getParameter("email"));
 		String question=Encoding.encoding(request.getParameter("question"));
 		String answer=Encoding.encoding(request.getParameter("answer"));
@@ -43,18 +50,19 @@ public class RegisterServlet extends HttpServlet
 		
 		try
 		{
-			loginManager.update(sql, new Object[] {userName,password,email,question,answer,registerDate,userType});
+			userManager.add(sql, new Object[] {userName,password,email,question,answer,registerDate,userType});
 			request.setAttribute("userType", userType);
 			if (userType.equals("editor"))
 			{
-				request.getRequestDispatcher("/admin/registerSuccess.jsp").forward(request, response);
+				out.println("注册编辑员成功");
 			}else{
-				request.getRequestDispatcher("/registerSuccess.jsp").forward(request, response);
+				out.println("注册用户成功");
 			}
 			
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
+			out.println("注册失败");
 		}
 	}
 

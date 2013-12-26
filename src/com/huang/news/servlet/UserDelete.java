@@ -1,6 +1,7 @@
 package com.huang.news.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -26,6 +27,8 @@ public class UserDelete extends HttpServlet
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		response.setContentType("text/html;charset=gbk");
+		PrintWriter out=response.getWriter();
 		UserManager nm=new UserManager();
 		int id=Integer.parseInt(Encoding.encoding(request.getParameter("id")));
 		String sql="delete from user where id=?";
@@ -35,10 +38,9 @@ public class UserDelete extends HttpServlet
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
-			request.getRequestDispatcher("/admin/error.jsp").forward(request, response);
+			out.println("É¾³ýÊ§°Ü");
 		}
-		
-		request.getRequestDispatcher("/admin/deleteSuccess.jsp").forward(request, response);
+		out.println("É¾³ý³É¹¦");
 	}
 
 }

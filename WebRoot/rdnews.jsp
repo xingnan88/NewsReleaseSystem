@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <%@ include file="head.jsp"%>
 <div id="mid">
 	<div id="left">
@@ -14,7 +14,7 @@
 			<table border="0">
 				<tr>
 					<td>
-						<a href=""><b>浣撹偛</b>
+						<a href=""><b>体育</b>
 						</a>
 					</td>
 				</tr>
@@ -45,7 +45,7 @@
 			<table border="0">
 				<tr>
 					<td>
-						<a href=""><b>鍐涗簨</b>
+						<a href=""><b>军事</b>
 						</a>
 					</td>
 				</tr>
@@ -76,7 +76,7 @@
 			<table border="0">
 				<tr>
 					<td>
-						<a href=""><b>鏁欒偛</b>
+						<a href=""><b>教育</b>
 						</a>
 					</td>
 				</tr>

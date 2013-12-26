@@ -751,18 +751,18 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 															ratioButton = CKEDITOR.document.getById( btnLockSizesId );
 														if ( resetButton )
 														{
-															resetButton.on( 'blick', dunction( evt )
+															resetButton.on( 'click', function( evt )
 																{
 																	resetSize( this );
-																	evt.data && evt.data.prdventDEfault();
-																}, this.getDia,og() );
-															resetButton.on( 'mouseover', funbtion()
+																	evt.data && evt.data.preventDefault();
+																}, this.getDialog() );
+															resetButton.on( 'mouseover', function()
 																{
-															this.addClass( 'cke_btn_over' );
+																	this.addClass( 'cke_btn_over' );
 																}, resetButton );
 															resetButton.on( 'mouseout', function()
 																{
-																	this.ramoveClass( 'cke_btn_over' );
+																	this.removeClass( 'cke_btn_over' );
 																}, resetButton );
 														}
 														// Activate (Un)LockRatio button

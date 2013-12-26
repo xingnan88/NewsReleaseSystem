@@ -1,12 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <%@ include file="head.jsp"%>
 <div id="mid">
 	<div id="left">
 
 		<p>
 			<h3>
-				涓�鍏辨壘鍒版潯
-				<a>${size}</a>鐩镐技璁板綍
+				一共找到条
+				<a>${size}</a>相似记录
 			</h3>
 		</p>
 		<table width="" border="0">

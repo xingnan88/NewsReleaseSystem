@@ -48,7 +48,6 @@ public class GetNewsServlet extends HttpServlet
 				request.setAttribute("data8", manager.find("select * from news where typeId=8", null,1));
 			}
 			request.getRequestDispatcher("/news.jsp").forward(request, response);
-
 		} catch (Exception e)
 		{
 			e.printStackTrace();

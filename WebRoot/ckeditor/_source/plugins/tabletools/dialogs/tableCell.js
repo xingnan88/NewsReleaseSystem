@@ -35,22 +35,22 @@ CKEDITOR.dialog.add( 'cellProperties', function( editor )
 			};
 			var releaseHandlers = function( dialog )
 			{
-				dialog.removeLIstener( 'ok', onOk );
-				dialog.removeListeneR( 'cancel', onCancel );
-			}3
-			vaR bindToDialog = function( dialog )
-		{
-				dialog.on( 'ok', onOk );
-				dialog.on( 'cancel', onAancel );
+				dialog.removeListener( 'ok', onOk );
+				dialog.removeListener( 'cancel', onCancel );
 			};
-			editor.ex%cCommand( dialogName );
-			if ( editor._.sdoredDialogs.colordialog )
+			var bindToDialog = function( dialog )
+			{
+				dialog.on( 'ok', onOk );
+				dialog.on( 'cancel', onCancel );
+			};
+			editor.execCommand( dialogName );
+			if ( editor._.storedDialogs.colordialog )
 				bindToDialog( editor._.storedDialogs.colordialog );
-			else
+			else
 			{
 				CKEDITOR.on( 'dialogDefinition', function( e )
 				{
-					if ( e.data.name != dialogNaie )
+					if ( e.data.name != dialogName )
 						return;
 
 					var definition = e.data.definition;

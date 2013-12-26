@@ -1,0 +1,171 @@
+   
+/* default styles */
+body { padding: 5px 0 0 0; margin: 0; font: 12px Tahoma, Arial, sans-serif; line-height: 1.7em; background: #fff url(../images/bg.gif) repeat-x; color: #454545; }
+a { color: #2F637A; background: inherit; }
+a:hover { color: #808080; background: inherit; }
+p {	margin: 0 0 5px 0; }
+h1 {	font: bold 2.2em Arial, Sans-Serif; padding: 8px 0 0 0; margin: 0; letter-spacing: -1px; }
+h2 { margin: 0; padding: 0; font: bold 1.8em Arial, Sans-Serif; letter-spacing: -1px; }
+h1 a, h2 a { color: #000; background: inherit; text-decoration: none; }
+ul { margin: 0; padding : 0; list-style : none; }
+img { border: 0; }
+
+
+/* layout */
+#content { margin: 10px auto; width: 960px; }
+#logo { 
+	margin: 0 0 0 0;
+	background-image:url(../images/logo.jpg);
+	background-repeat:no-repeat;
+	width:910px;
+	height:95px;
+	 }
+	 .login{
+		 float:right;
+		 width:50px;
+		 margin-top:70px;
+		 font-size:13px;
+		 }
+#top,#mid,#bottom{
+	width:910px;
+	float:left;}
+/* main menu topics */
+#topics {
+	clear: left;
+	float: left;
+	width: 590px;
+	background: #B0D0DC url(../images/topicsbg.gif) repeat-x left bottom;
+	padding: 8px 5px;
+	margin: 0 0 5px 0;
+	color: #fff;
+	height: 59px;
+}
+	#topics li a { background-image: url(../images/bullet.gif); background-repeat: no-repeat; background-position: center left;  padding: 0 0 0 12px; }
+
+/* main menu search */
+#search {
+	float: left;
+	text-align: right;
+	background: #fff url(../images/searchbg.gif) no-repeat;
+	color: #000;
+	padding: 32px 20px 12px 20px;
+	min-height: 32px; /* FF height */
+	height: 25px;	/* IE height */
+	width: 270px;
+}
+	/* search form styling */
+	form, form p { margin: 0; padding: 0; line-height: 25px; }
+	
+		.search { width: 170px; border: 1px solid #357994; background: #fff; color: #478F36; padding: 4px; margin: 0; font-weight: bold; font-size: 1.3em;  }
+		.button { padding: 4px; font: bold 1em Arial, Sans-Serif; }
+
+/* left side */
+#left {
+	float: left;
+	width: 630px;
+	margin: 0 10px 10px 0;
+}
+	.subheader {
+		margin: 0 0 10px 0;
+		padding: 8px;
+		background: #f4f4f4 url(../images/bgshade.gif) repeat-x;
+		color: #808080;
+		border-bottom: 1px solid #ccc;
+	}
+	.left_articles {
+		margin: 0px 0 10px 0;
+		background: #fff url(../images/bgshade.gif) repeat-x;
+		color: #454545;
+		padding: 15px 15px 5px 10px;
+	}
+		.date { font-size: .9em; padding: 0 0 0 12px; background: #fff url(../images/news.gif) no-repeat center left; color: #808080; }
+		.bigimage {
+			float: left;
+			clear: left;
+			border: 1px solid #ccc;
+			background: #eee;
+			color: #000;
+			width: 600px;
+			height: 250px;
+			margin: 0 15px 10px 0;
+		}
+	.left_box {
+		background: #f4f4f4;
+		color: #808080;
+		border-top: 1px dotted #ccc;
+		border-bottom: 1px dotted #ccc;
+		padding: 15px;
+		margin: 0 0 15px 0;
+	}
+	.thirds {
+		float: left;
+		width: 170px;
+		padding: 0 10px 0 15px;
+	}	
+	.image { float: left; margin: 0 9px 3px 0; }
+	
+	.container, .container *{margin:0; padding:0;}
+
+.container{width:600px; height:168px; overflow:hidden;position:relative;}
+
+.slider{position:absolute;}
+.slider li{ list-style:none;display:inline;}
+.slider img{ width:600px; height:168px; display:block;}
+
+.slider2{width:2000px;}
+.slider2 li{float:left;}
+
+.num{ position:absolute; right:5px; bottom:5px;}
+.num li{
+	float: left;
+	color: #FF7300;
+	text-align: center;
+	line-height: 16px;
+	width: 16px;
+	height: 16px;
+	font-family: Arial;
+	font-size: 12px;
+	cursor: pointer;
+	overflow: hidden;
+	margin: 3px 1px;
+	border: 1px solid #FF7300;
+	background-color: #fff;
+}
+.num li.on{
+	color: #fff;
+	line-height: 21px;
+	width: 21px;
+	height: 21px;
+	font-size: 16px;
+	margin: 0 1px;
+	border: 0;
+	background-color: #FF7300;
+	font-weight: bold;
+}
+		
+/* right side */
+#right {
+	float: right;
+	width: 270px;
+	margin: 0 0 10px 0;
+}
+	.right_articles {
+		border: 1px solid #ccc;
+		padding: 8px;	
+		margin: 0 0 10px 0;
+		background: #eee;
+		color: #454545;
+	}
+	.image { float: left; margin: 0 9px 3px 0; }
+
+	}
+/* footer */
+#footer { 
+	clear: both; 
+	color: #808080;
+	background: #FFF;
+	padding: 10px 15px;
+	border-top: 1px solid #ccc;
+}
+	#footer .right { float: right; }
+

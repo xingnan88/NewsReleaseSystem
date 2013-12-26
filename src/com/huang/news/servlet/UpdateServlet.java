@@ -40,7 +40,6 @@ public class UpdateServlet extends HttpServlet
 			nm.update(sql, new Object[]{title,author,content,typeId,id});
 		} catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

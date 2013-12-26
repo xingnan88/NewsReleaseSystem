@@ -25,7 +25,7 @@ public class UserList extends HttpServlet
 		UserManager um=new UserManager();
 		List<User> list=um.find(userType);
 		request.setAttribute("users", list);
-		request.getRequestDispatcher("/admin/userManager.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/index_admin.jsp").forward(request, response);
 	}
 
 }

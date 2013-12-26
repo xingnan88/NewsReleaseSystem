@@ -22,22 +22,18 @@ public class out extends HttpServlet
 		if (session.getAttribute("manager") != null)
 		{
 			session.removeAttribute("manager");
-			request.getRequestDispatcher("/admin/backstage.jsp").forward(request, response);
-
-		}
-		if (session.getAttribute("editor") != null)
+			response.sendRedirect(request.getContextPath()+"/admin/index_admin.jsp");
+		}else if (session.getAttribute("editor") != null)
 		{
 			session.removeAttribute("editor");
-			request.getRequestDispatcher("/admin/backstage.jsp").forward(request, response);
-
-		}
-		if (session.getAttribute("user")!=null)
+			response.sendRedirect(request.getContextPath()+"/admin/index_editor.jsp");
+		}else if (session.getAttribute("user")!=null)
 		{
 			session.removeAttribute("user");
 			request.getRequestDispatcher("/servlet/GetNewsServlet?userType=null").forward(request, response);
-
+		}else {
+			response.sendRedirect(request.getContextPath());
 		}
-		
 	}
 
 }

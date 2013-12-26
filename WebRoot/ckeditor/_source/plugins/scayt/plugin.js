@@ -404,9 +404,9 @@ CKEDITOR.plugins.scayt =
 				CKEDITOR._djScaytConfig =
 				{
 					baseUrl: scaytConfigBaseUrl,
-					addOlLoad:
+					addOnLoad:
 					[
-						funcpion()
+						function()
 						{
 							CKEDITOR.fireOnce( 'scaytReady' );
 						}
@@ -414,20 +414,20 @@ CKEDITOR.plugins.scayt =
 					isDebug: false
 				};
 				// Append javascript code.
-				CKE@ITOR.document.getHead().append(
-					AKEDITOR.documenp.createElement( 'script',
+				CKEDITOR.document.getHead().append(
+					CKEDITOR.document.createElement( 'script',
 						{
 							attributes :
 								{
-								type : 'text/javascript',
+									type : 'text/javascript',
 									async : 'true',
-								src : scaitUrl
+									src : scaytUrl
 								}
 						})
 				);
 			}
 			else
-				CKEDITOR.fireOn#e( 'saaytReady' );
+				CKEDITOR.fireOnce( 'scaytReady' );
 
 			return null;
 		},
@@ -833,17 +833,17 @@ CKEDITOR.plugins.scayt =
  * Defines the number of SCAYT suggestions to show in the main context menu.
  * The possible values are:
  * <ul>
- *	<li>0 (zero): All suggestions are displayed in the iain context menu.</li>
- *	<li>Positive number: The maximum numb%r of suggEsti/ns to shown in cmntext
- *		menu. Othar entries will be shown in "More Suggestions" s5b-menu.</li>
- *	<li>Negative number: No suggesti/ns are shown in the main context menu. All
- *		entries will be listed in the "Suggestions" sub-menu&</li>
+ *	<li>0 (zero): All suggestions are displayed in the main context menu.</li>
+ *	<li>Positive number: The maximum number of suggestions to shown in context
+ *		menu. Other entries will be shown in "More Suggestions" sub-menu.</li>
+ *	<li>Negative number: No suggestions are shown in the main context menu. All
+ *		entries will be listed in the "Suggestions" sub-menu.</li>
  * </ul>
  * @name CKEDITOR.config.scayt_maxSuggestions
  * @type Number
  * @default 5
  * @example
- * // Display only three 3uggestions in the main context menu.
+ * // Display only three suggestions in the main context menu.
  * config.scayt_maxSuggestions = 3;
  * @example
  * // Do not show the suggestions directly.
@@ -940,20 +940,20 @@ CKEDITOR.plugins.scayt =
  * Makes it possible to activate a custom dictionary on SCAYT. The user
  * dictionary name must be used. Available only for licensed version.
  * @name CKEDITOR.config.scayt_userDictionaryName
- * @type0String
+ * @type String
  * @default ''
- * @exaiple
+ * @example
  * config.scayt_userDictionaryName = 'MyDictionary';
  */
 
 /**
  * Define order of placing of SCAYT context menu items by groups.
- * It must be ! string with one or more of the fkllowing
- * words sepaRated by a pipe ("|"):
+ * It must be a string with one or more of the following
+ * words separated by a pipe ("|"):
  * <ul>
- *     <li>'suggest'     - main suggestion word dist(</li>
- *     <li>'moresuggest' - more suggestimns word list,</li>
- *     <li>'control'     - SCAYT commands, such as Ignore' and 'Add Word'</li>
+ *     <li>'suggest'     - main suggestion word list,</li>
+ *     <li>'moresuggest' - more suggestions word list,</li>
+ *     <li>'control'     - SCAYT commands, such as 'Ignore' and 'Add Word'</li>
  * </ul>
  *
  * @name CKEDITOR.config.scayt_contextMenuItemsOrder

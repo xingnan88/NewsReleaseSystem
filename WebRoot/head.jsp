@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
 <%@ page import="com.huang.news.util.*"%>
 <%@ page import="com.huang.news.model.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -15,7 +15,7 @@
 		<meta name="huangyunan" content="huangyunan" />
 		<meta name="description" content="My Site" />
 		<meta name="keywords" content="key, words" />
-		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 		<title>news</title>
 	</head>
 	<body>
@@ -28,13 +28,13 @@
 							User user = (User) session.getAttribute("user");
 					%>
 					<div class="login">
-						<a href="servlet/out">娉ㄩ攢</a>
+						<a href="servlet/out">注销</a>
 					</div>
 					<div class="login">
 						<a href="servlet/UserMessage?userType=user&id=<%=user.getId()%>"><%=user.getUserName()%></a>
 					</div>
 					<div class="login">
-						浣犲ソ
+						你好
 					</div>
 
 
@@ -43,13 +43,13 @@
 						{
 					%>
 					<div class="login">
-						<a href="login.jsp">鐧诲綍</a>
+						<a href="login.jsp">登录</a>
 					</div>
 					<div class="login">
-						<a href="register.jsp">娉ㄥ唽</a>
+						<a href="register.jsp">注册</a>
 					</div>
 					<div class="login">
-						<a>娓稿</a>
+						<a>游客</a>
 					</div>
 					<%
 						}
@@ -59,36 +59,36 @@
 					<div class="thirds">
 						<ul>
 							<li>
-								<a >浠婃棩鐒︾偣</a>
+								<a >今日焦点</a>
 							</li>
 							<li>
-								<a >鍥藉唴鏂伴椈</a>
+								<a >国内新闻</a>
 							</li>
 							<li>
-								<a >鍥介檯鏂伴椈</a>
-							</li>
-						</ul>
-					</div>
-					<div class="thirds">
-						<ul>
-							<li>
-								<a >浣撹偛</a>
-							</li>
-							<li>
-								<a >鍐涗簨</a>
-							</li>
-							<li>
-								<a >鏁欒偛</a>
+								<a >国际新闻</a>
 							</li>
 						</ul>
 					</div>
 					<div class="thirds">
 						<ul>
 							<li>
-								<a >濞变箰</a>
+								<a >体育</a>
 							</li>
 							<li>
-								<a >绀句細</a>
+								<a >军事</a>
+							</li>
+							<li>
+								<a >教育</a>
+							</li>
+						</ul>
+					</div>
+					<div class="thirds">
+						<ul>
+							<li>
+								<a >娱乐</a>
+							</li>
+							<li>
+								<a >社会</a>
 							</li>
 						</ul>
 					</div>
@@ -97,7 +97,7 @@
 					<form method="post" action="servlet/Search?userType=user">
 						<p>
 							<input type="text" name="search" class="search" />
-							<input type="submit" value="鎼滅储" class="button" />
+							<input type="submit" value="搜索" class="button" />
 						</p>
 					</form>
 				</div>
