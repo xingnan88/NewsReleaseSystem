@@ -1,6 +1,7 @@
 package com.huang.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -11,30 +12,53 @@ import javax.servlet.http.HttpServletResponse;
 import com.jxust.news.News;
 import com.jxust.news.NewsManager;
 
-public class ReadNews extends HttpServlet
+public class UpdateList extends HttpServlet
 {
-
-	private static final long serialVersionUID = 651648058087124874L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		this.doPost(request, response);
-
 	}
+
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		NewsManager manager = new NewsManager();
-		int titleid = Integer.parseInt(request.getParameter("titleid"));
+
+		NewsManager manager=new NewsManager();
+		int titleid= Integer.parseInt(request.getParameter("titleid"));
 		try
 		{
 			News news = manager.get(titleid);
+			String type=this.type(news.getTypeId());
 			request.setAttribute("news", news);
-			request.getRequestDispatcher("/rdnews.jsp").forward(request, response);
+			request.setAttribute("type", type);
+			request.getRequestDispatcher("/update.jsp").forward(request, response);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public String type(int typeId)
+	{
+		if (typeId==1)
+			return "今日焦点";
+		else if (typeId==2) {
+			return "国内新闻";
+		}else if (typeId==3) {
+			return "国际新闻";
+		}else if (typeId==4) {
+			return "体育";
+		}else if (typeId==5) {
+			return "军事";
+		}else if (typeId==6) {
+			return "教育";
+		}else if (typeId==7) {
+			return "娱乐";
+		}else if (typeId==8) {
+			return "社会";
+		}
+		return null;
 	}
 
 }

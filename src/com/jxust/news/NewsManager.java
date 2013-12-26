@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
+
 public class NewsManager
 {
 	private Connection conn;
@@ -28,7 +30,9 @@ public class NewsManager
 				News news = new News();
 				news.setId(Integer.parseInt(rs.getString("id")));
 				news.setTitle(rs.getString("title"));
+				news.setAuthor(rs.getString("author"));
 				news.setContent(rs.getString("content"));
+				news.setPubtime(rs.getDate("pubtime"));
 				news.setTypeId(Integer.parseInt(rs.getString("typeId")));
 				return news;
 			} else
@@ -45,7 +49,28 @@ public class NewsManager
 			util.close(conn, stam, rs);
 		}
 	}
-
+//	@Test
+//	public void test() throws SQLException
+//	{
+//		JdbcUtil util = new JdbcUtil();
+//		try
+//		{
+//			conn = util.getConnection();
+//			stam = conn.prepareStatement("select * from news_type where type = 'abc'");
+//
+//			rs = stam.executeQuery();
+//
+//			System.out.println(rs.getInt("id"));
+//
+//		} catch (ClassNotFoundException e)
+//		{
+//			e.printStackTrace();
+//		} finally
+//		{
+//			util.close(conn, stam, rs);
+//		}
+//	}
+	
 	public List<News> find(String sql, Object[] args) throws SQLException
 	{
 
@@ -70,6 +95,8 @@ public class NewsManager
 				news = new News();
 				news.setId(Integer.parseInt(rs.getString("id")));
 				news.setTitle(rs.getString("title"));
+				news.setAuthor(rs.getString("author"));
+				news.setPubtime(rs.getDate("pubtime"));
 				news.setContent(rs.getString("content"));
 				news.setTypeId(Integer.parseInt(rs.getString("typeId")));
 				list.add(news);

@@ -27,22 +27,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="topics">
 			<div class="thirds">
 				<ul>
-					<li><a href="#">今日焦点</a></li>
-					<li><a href="#">国内新闻</a></li>
-					<li><a href="#">国际新闻</a></li>
+					<li><a href="servlet/Backstage?data=1">今日焦点</a></li>
+					<li><a href="servlet/Backstage?data=2">国内新闻</a></li>
+					<li><a href="servlet/Backstage?data=3">国际新闻</a></li>
 				</ul>
 			</div>
 			<div class="thirds">
 				<ul>
-					<li><a href="#">体育</a></li>
-					<li><a href="#">军事</a></li>
-					<li><a href="#">教育</a></li>
+					<li><a href="servlet/Backstage?data=4">体育</a></li>
+					<li><a href="servlet/Backstage?data=5">军事</a></li>
+					<li><a href="servlet/Backstage?data=6">教育</a></li>
 				</ul>
 			</div>
             <div class="thirds">
 				<ul>
-					<li><a href="#">娱乐</a></li>
-					<li><a href="#">社会</a></li>
+					<li><a href="servlet/Backstage?data=7">娱乐</a></li>
+					<li><a href="servlet/Backstage?data=8">社会</a></li>
 				</ul>
 			</div>
 		</div>
@@ -61,17 +61,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <td width="106" background="images/bgshade.gif" height="30" align="center"><font size="2px">时间</font></td>
 			    <td width="194" background="images/bgshade.gif" height="30" align="center"><font size="2px">编辑</font></td>
 		    </tr>
-		    <c:forEach items="${requestScope.data1}" var="news1" varStatus="status1" >
+		    <c:forEach items="${requestScope.data}" var="news1" varStatus="status1" >
 		    <tr>
 		    <c:if test="${status1.index%2==0}">
 				<td width="483" background="images/bgshade.gif" height="25"><font size="2px">${news1.title}</font></td>
 			    <td width="106" background="images/bgshade.gif" height="25"><font size="2px">${news1.pubtime}</font></td>
-			    <td width="194" background="images/bgshade.gif" height="25"><font size="2px"><a href="servlet/ReadNews?titleid=${news1.id }">查看</a> <a href="postnew.jsp">添加</a> <a  href="#">删除</a> <a  href="#">修改</a></font></td>
+			    <td width="194" background="images/bgshade.gif" height="25"><font size="2px"><a href="servlet/ReadNews?titleid=${news1.id }">查看</a> <a href="postnew.jsp">添加</a> <a href="servlet/DeleteServlet?id=${news1.id}">删除</a> <a href="servlet/UpdateList?titleid=${news1.id}">修改</a></font></td>
 			</c:if>
 			<c:if test="${status1.index%2!=0}">
 				<td width="483" height="25"><font size="2px">${news1.title}</font></td>
 			    <td width="106" height="25"><font size="2px">${news1.pubtime}</font></td>
-			    <td width="194" height="25"><font size="2px"><a href="servlet/ReadNews?titleid=${news1.id}">查看</a> <a href="postnew.jsp">添加</a> <a  href="#">删除</a> <a  href="#">修改</a></font></td>
+			    <td width="194" height="25"><font size="2px"><a href="servlet/ReadNews?titleid=${news1.id}">查看</a> <a href="postnew.jsp">添加</a> <a href="servlet/DeleteServlet?id=${news1.id}">删除</a> <a href="servlet/UpdateList?titleid=${news1.id}">修改</a></font></td>
 			</c:if>					
             </c:forEach>
 		    </tr>		

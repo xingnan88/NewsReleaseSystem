@@ -47,17 +47,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div id="search">
-			<form method="post" action="?">
+			<form method="post" action="#">
 				<p><input type="text" name="search" class="search" /> <input type="submit" value="搜索" class="button" /></p>
 			</form>
 		</div>
 			</div>		
             <div id="mid">		
 		<div id="left">
-		  <h1>修改新闻成功！		</h1>
-          <a href="backstage.jsp">回到后台新闻列表</a>
-          <br/>
-          <a href="">重新修改</a>
+          <form id="postnew" method="post" action="servlet/UpdateServlet">
+          		<input type="hidden" name="id" value="${requestScope.news.id}"/>
+          		  <table width="600" height="" border="0">
+				  <tr>
+				    <td width="83" height="37">新闻标题：</td>
+				    <td width="501"><label for="title"></label>
+			        <input name="title" type="text" id="title" value="${requestScope.news.title}" /></td>
+		    </tr>
+				  <tr>
+				    <td height="37">作者：</td>
+				    <td><label for="author"></label>
+			        <input type="text" name="author" id="author" value="${requestScope.news.author}" /></td>
+		    </tr>
+				  <tr>
+				    <td height="37">新闻类别：</td>
+				    <td><label for="type"></label>
+				      <select name="type" id="type">
+				        <option>今日焦点</option>
+				        <option>国内新闻</option>
+				        <option>国际新闻</option>
+				        <option>体育</option>
+				        <option>军事</option>
+				        <option>教育</option>
+				        <option>娱乐</option>
+				        <option>社会</option>
+                        <option selected="selected">${requestScope.type}</option>
+	                </select></td>
+		    </tr>
+				  <tr>
+				    <td height="43">内容：</td>
+				    <td><textarea name="content" id="textarea" cols="45" rows="5">${requestScope.news.content}</textarea></td>
+		    </tr>
+            <tr>
+            	<td height="37"><input type="submit" name="submit" id="submit" value="提交" /></td>
+                <td height="37"><input type="reset" name="reset" id="reset" value="重置" /></td>
+            </tr>
+		  </table>
+          </form>
 		</div>	
         
 		<div id="right">

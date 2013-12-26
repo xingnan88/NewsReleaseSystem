@@ -1,6 +1,7 @@
 package com.huang.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -8,33 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.News;
+import com.jxust.news.Encoding;
 import com.jxust.news.NewsManager;
 
-public class ReadNews extends HttpServlet
+public class DeleteServlet extends HttpServlet
 {
-
-	private static final long serialVersionUID = 651648058087124874L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		this.doPost(request, response);
-
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		NewsManager manager = new NewsManager();
-		int titleid = Integer.parseInt(request.getParameter("titleid"));
+		NewsManager nm=new NewsManager();
+		int id=Integer.parseInt(Encoding.encoding(request.getParameter("id")));
+		String sql="delete from news_title where id=?";
 		try
 		{
-			News news = manager.get(titleid);
-			request.setAttribute("news", news);
-			request.getRequestDispatcher("/rdnews.jsp").forward(request, response);
+			nm.delete(sql, new Object[]{id});
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
+		
+		request.getRequestDispatcher("/deleteSuccess.jsp").forward(request, response);
 	}
 
 }

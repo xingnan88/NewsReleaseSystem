@@ -8,9 +8,4 @@ public class Encoding {
 		return new String(s.getBytes("ISO-8859-1"),"utf-8");
 	}
 	
-//	public static Object encoding(Object o)
-//	{
-//		new Object(o.get) 
-//		return null;
-//	}
 }

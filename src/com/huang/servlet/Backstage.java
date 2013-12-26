@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jxust.news.Encoding;
 import com.jxust.news.NewsManager;
 
 public class Backstage extends HttpServlet
@@ -23,17 +24,27 @@ public class Backstage extends HttpServlet
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		int data=Integer.parseInt(Encoding.encoding(request.getParameter("data")));
 		try
 		{
 			NewsManager manager = new NewsManager();
-			request.setAttribute("data1", manager.find("select * from news_title where typeid=1", null));
-			request.setAttribute("data2", manager.find("select * from news_title where typeid=2", null));
-			request.setAttribute("data3", manager.find("select * from news_title where typeid=3", null));
-			request.setAttribute("data4", manager.find("select * from news_title where typeid=4", null));
-			request.setAttribute("data5", manager.find("select * from news_title where typeid=5", null));
-			request.setAttribute("data6", manager.find("select * from news_title where typeid=6", null));
-			request.setAttribute("data7", manager.find("select * from news_title where typeid=7", null));
-			request.setAttribute("data8", manager.find("select * from news_title where typeid=8", null));
+			if (data==1)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=1", null));
+			else if (data==2)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=2", null));
+			else if (data==3)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=3", null));
+			else if (data==4)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=4", null));
+			else if (data==5)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=5", null));
+			else if (data==6)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=6", null));
+			else if (data==7)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=7", null));
+			else if (data==8)
+				request.setAttribute("data", manager.find("select * from news_title where typeid=8", null));
+			
 			request.getRequestDispatcher("/backstage.jsp").forward(request, response);
 		}
 		catch(Exception e)

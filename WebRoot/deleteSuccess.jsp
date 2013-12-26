@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div id="mid">		
 		<div id="left">
 		  <h1>删除新闻成功！		</h1>
-          <a href="servlet/Backstage">回到后台新闻列表</a>
+          <a href="backstage.jsp">回到后台新闻列表</a>
 		</div>	
         
 		<div id="right">

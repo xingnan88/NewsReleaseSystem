@@ -14,7 +14,8 @@ public class JdbcUtil
 		//第一步 注册驱动
 		Class.forName("com.mysql.jdbc.Driver");
 		//第二步 建立连接
-		return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/news", "root", "root");
+//		return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/news", "root", "root");
+		return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/news?useUnicode=true&amp;characterEncoding=utf8", "root", "root");
 	}
 	
 	public void close(Connection con, PreparedStatement stam, ResultSet rs)

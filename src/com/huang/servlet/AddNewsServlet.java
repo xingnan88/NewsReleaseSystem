@@ -2,6 +2,7 @@ package com.huang.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,11 +30,12 @@ public class AddNewsServlet extends HttpServlet {
 	    String type=Encoding.encoding(request.getParameter("type"));
 	    String content=Encoding.encoding(request.getParameter("content"));
 	    int typeId = this.typeValue(type);
-	    String sql="insert into news_title(title,content,author,typeId)values (?,?,?,?)";
+	    Date pubtime=new Date();
+	    String sql="insert into news_title(title,content,author,pubtime,typeId)values (?,?,?,?,?)";
 	  
 	    try
 		{
-			manager.update(sql,new Object[]{title,content,author,typeId});
+			manager.update(sql,new Object[]{title,content,author,pubtime,typeId});
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
