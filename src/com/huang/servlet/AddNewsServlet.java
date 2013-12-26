@@ -1,14 +1,15 @@
 package com.huang.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.Database;
 import com.jxust.news.Encoding;
+import com.jxust.news.NewsManager;
 
 public class AddNewsServlet extends HttpServlet {
 
@@ -21,20 +22,22 @@ public class AddNewsServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Database database=new Database();
+		NewsManager manager=new NewsManager();
+
 		Encoding enc=new Encoding();
 	    String title=enc.encoding(request.getParameter("title"));
-	    String type=enc.encoding(request.getParameter("type"));
-	    String content=enc.encoding(request.getParameter("content"));
-	    try {
-			database.OpenConn();
-		} catch (Exception e) {
+	    int type=Integer.parseInt(enc.encoding(request.getParameter("type")));
+	    String content=enc.encoding(request.getParameter("content"));                                                                                                                                                                  
+	    String sql="insert into news_title(title,typeid,content)values (?,?,?)";
+	    try
+		{
+			manager.update(sql,new Object[]{title,type,content});
+		} catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
-	    String sql="insert into news_title(title,content,typeid) values ('"+title+"','"+content+"','"+type+"')";
-	    database.executeUpdate(sql);
-	    database.closeConn();
 	    
-	    response.sendRedirect("/news/news.jsp");
+	    response.sendRedirect("/news2/news4.jsp");
 	}
+
 }

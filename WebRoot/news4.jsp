@@ -1,13 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.jxust.news.*"%>
-<%@page import="java.sql.ResultSet"%>
-<% 
-    Database database=new Database();  
-%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -16,11 +10,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta name="huangyunan" content="huangyunan" />
 	<meta name="description" content="My Site" />
 	<meta name="keywords" content="key, words" />	
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/news2/style.css" media="screen" />
 	<title>news</title>
 </head>
 <body>
-<div align="center">
 	<div id="content">
 		
 		
@@ -68,9 +61,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <p>&nbsp;</p>
 			  <div class="container" id="idTransformView">
 			    <ul class="slider" id="idSlider">
-			      <li><img src="images/01.jpg" class="bigimage"/ ></li>
-			      <li><img src="images/02.jpg" class="bigimage"/></li>
-			      <li><img src="images/03.jpg" class="bigimage"/></li>
+			      <li><img src="${pageContext.request.contextPath}/images/01.jpg" class="bigimage"/></li>
+			      <li><img src="${pageContext.request.contextPath}/images/02.jpg" class="bigimage"/></li>
+			      <li><img src="${pageContext.request.contextPath}/images/03.jpg" class="bigimage"/></li>
 		        </ul>
 			    <ul class="num" id="idNum">
 			      <li>1</li>
@@ -79,8 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </ul>
               </div>
 
-<p>
-						<script type="text/javascript">
+  <script type="text/javascript">
 	var $ = function(id) {
 		return "string" == typeof id ? document.getElementById(id) : id;
 	};
@@ -234,28 +226,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 </script>       
                 <div>
-                <%
- 					database.OpenConn();
- 					 ResultSet rs1=database.executeQuery("select * from news_title where typeid=1");
- 					 int i=0;	 
-  					while (rs1.next())
- 					 {
- 					    i++;
- 					    if(i%2!=0)
- 					    {
-  				%>
-  					<p><a href="readnew.jsp?titleid=<%=rs1.getString("id")%>"><%=rs1.getString("title")%></a>
-  				<%
-  				        }
-  				        else 
-  				        {
-  			     %>
-  				        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="readnew.jsp?titleid=<%=rs1.getString("id")%>"><%=rs1.getString("title")%></a></p>
-  				<%      }   
- 					  }
- 				 	database.closeConn();
- 					 database.closeStmt();
- 				%>    
+					<table border="0">
+					 <c:forEach items="${requestScope.data1}" var="news1" varStatus="status1" >
+					 <c:if test="${status1.index%2==0}">
+					 <tr><td><a href="/news2/servlet/ReadNews?titleid=${news1.id }">${news1.title}</a></td>
+					 </c:if>
+					 <c:if test="${status1.index%2!=0}">
+					 <td><a href="/news2/servlet/ReadNews?titleid=${news1.id }">${news1.title}</a></td>
+					 </c:if>					
+                     </c:forEach>
+					</table>   
                 </div>
 			</div>
 			<div class="left_box">
@@ -263,174 +243,82 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="thirds">
 				<table border="0">
-				<tr><td><b><a href="#" class="title">国内新闻</a></b></td></tr>
-				<%
- 					database.OpenConn();
- 				 	ResultSet rs2=database.executeQuery("select * from news_title where typeid=2");
- 				 	int count2=0;
-  					while (rs2.next())
-  					{
-  						count2++;
-  						if (count2==1)
-  						{
-  						%>
-  						<tr><td><img src="images/guonei.jpg" alt="Image" width="120" height="88" class="image" title="guonei" /><b><a href="readnew.jsp?titleid=<%=rs2.getString("id")%>"><%=rs2.getString("title")%></a></b></td></tr> 
-  						<%
-  						}
-  						else{
-  				%>
-  					<tr><td><a href="readnew.jsp?titleid=<%=rs2.getString("id")%>"><%=rs2.getString("title")%></a></td></tr>
-  				<%		}
- 					 }
-  				database.closeConn();
- 				database.closeStmt();
- 				%>
+			    <tr><td><b><a href="#" class="title">国内新闻</a></b></td></tr>
+				<tr><td><img src="${pageContext.request.contextPath}/images/guonei.jpg" alt="Image" width="120" height="88" class="image" title="guonei" /></td></tr>		
+ 				<c:forEach items="${requestScope.data2}" var="news2">
+ 				<tr><td><a href="/news2/servlet/ReadNews?titleid=${news2.id }">${news2.title }</a></td></tr> 					
+  				</c:forEach>	
  				</table>
           </div>
 			<div class="thirds">
-			  <p><b><a href="" class="title">国际新闻</a></b></p>
-                  <table border="0">
-				<%
- 					database.OpenConn();
- 					 ResultSet rs3=database.executeQuery("select * from news_title where typeid=3");
- 					 int count3=0;
-  					 while (rs3.next())
- 					 {
- 						count3++;
- 					 	if (count3==1)
- 					 	{
- 					 	%>
- 					 		<tr><td><img src="images/guowai.jpg" alt="Image" width="120" height="88" class="image" title="guowai" /><b><a href="readnew.jsp?titleid=<%=rs3.getString("id")%>"><%=rs3.getString("title")%></a></b></td></tr>      
- 					 	<%
- 					 	}
- 					 	else {
-  				%>
-  					<tr><td><a href="readnew.jsp?titleid=<%=rs3.getString("id")%>"><%=rs3.getString("title")%></a></td></tr>
-  				<%
-						}  				
- 					 }
- 				 	 database.closeConn();
- 					 database.closeStmt();
- 				%>
- 				  </table>    
+            <table border="0">
+			<tr><td><b><a href="" class="title">国际新闻</a></b></td></tr>
+ 			<tr><td><img src="${pageContext.request.contextPath}/images/guowai.jpg" alt="Image" width="120" height="88" class="image" title="guowai" /></td></tr>      
+ 			<c:forEach items="${requestScope.data3}" var="news3">
+ 			<tr><td><a href="/news2/servlet/ReadNews?titleid=${news3.id }">${news3.title }</a></td></tr>	
+ 			</c:forEach>
+ 			</table>    
           </div>
-          			<div class="thirds">
-				<p><b><a href="" class="title">社会</a></b></p>           
-<%
- database.OpenConn();
-  ResultSet rs8=database.executeQuery("select * from news_title where typeid=8");
-  %>
-   <table border="0">
-   <tr><td><img src="${pageContext.request.contextPath}/images/mingsheng.jpg" alt="Image" width="120" height="88" class="image" title="mingsheng" /></td></tr>
-  <%
-  while (rs8.next())
-  {
-  	%>	
-  	<tr><td><a href="/news2/readnew.jsp?titleid=<%=rs8.getString("id")%>"><%=rs8.getString("title")%></a></td></tr>
-  	<%
-  }
-  database.closeConn();
-  database.closeStmt();
- %>
-	</table>
+			<div class="thirds">
+			 <table border="0">
+			<tr><td><b><a href="" class="title">社会</a></b></td></tr>
+ 			<tr><td><img src="${pageContext.request.contextPath}/images/mingsheng.jpg" alt="Image" width="120" height="88" class="image" title="mingsheng" /></td></tr>      
+ 			<c:forEach items="${requestScope.data8}" var="news8">
+ 			<tr><td><a href="/news2/servlet/ReadNews?titleid=${news8.id }">${news8.title }</a></td></tr>	
+ 			</c:forEach>
+		  </table>
 			</div>
-
 		</div>	
 		
 		<div id="right">
 			<div class="right_articles">
               <table border="0">
               <tr><td><a href=""><b>体育</b></a></td></tr>
-<%
-  database.OpenConn();
-  ResultSet rs4=database.executeQuery("select * from news_title where typeid=4");
-  int count4=0;
-  while (rs4.next())
-  {
-  	count4++;
-  	if (count4==1)
-  	{
-  	%>
-  	<tr><td><img src="images/tiyu.jpg" alt="Image" title="tiyu" class="image" /><b><a href="readnew.jsp?titleid=<%=rs4.getString("id")%>"><%=rs4.getString("title")%></a></b></td></tr>
-  	<%
-  	}
-  	else{
-    %>
-  	<tr><td><a href="readnew.jsp?titleid=<%=rs4.getString("id")%>"><%=rs4.getString("title")%></a></td></tr>
-  	<%
-  	}
-  }
-  database.closeConn();
-  database.closeStmt();
- %>
-    		</table>
-		  </div>
+              <c:forEach items="${requestScope.data4}" var="news4" varStatus="status4">
+              <c:if test="${status4.count==1}">
+              <tr><td><img src="${pageContext.request.contextPath}/images/tiyu.jpg" alt="Image" title="tiyu" class="image" /><a href="/news2/servlet/ReadNews?titleid=${news4.id }">${news4.title }</a></td></tr>
+  			  </c:if>
+  			  <c:if test="${status4.count!=1}">
+  			  <tr><td><a href="/news2/servlet/ReadNews?titleid=${news4.id }">${news4.title }</a></td></tr>
+   			  </c:if>
+   			  </c:forEach>
+    		  </table>
+		    </div>
+		    
 			<div class="right_articles">
 			<table border="0">
-            <tr><td><a href=""><b>军事</b></a></td></tr>	
- <%
-  database.OpenConn();
-  ResultSet rs5=database.executeQuery("select * from news_title where typeid=5");
-  int count5=0;
-  while (rs5.next())
-  {
-   count5++;
-   if (count5==1)
-   {
-   %>
-   <tr><td><img src="images/junshi.jpg" alt="Image" title="junshi" class="image" /><b><a href="readnew.jsp?titleid=<%=rs5.getString("id")%>"><%=rs5.getString("title")%></a></b></td></tr>
-   <%
-   }
-      else{
-
-  %>
-
-  	<tr><td><a href="readnew.jsp?titleid=<%=rs5.getString("id")%>"><%=rs5.getString("title")%></a></td></tr>
-  <%
-     }
-  }
-  database.closeConn();
-  database.closeStmt();
- %>
+            <tr><td><a href=""><b>军事</b></a></td></tr>	 
+			<c:forEach items="${requestScope.data5}" var="news5" varStatus="status5">
+              <c:if test="${status5.count==1}">
+              <tr><td><img src="${pageContext.request.contextPath}/images/junshi.jpg" alt="Image" title="tiyu" class="image" /><a href="/news2/servlet/ReadNews?titleid=${news5.id }">${news5.title }</a></td></tr>
+  			  </c:if>
+  			  <c:if test="${status5.count!=1}">
+  			  <tr><td><a href="/news2/servlet/ReadNews?titleid=${news5.id }">${news5.title }</a></td></tr>
+   			  </c:if>
+   			  </c:forEach>
 			</table>
-          </div>
+            </div>
+          
+          
 			<div class="right_articles">
 			<table border="0">
-            <tr><td><a href=""><b>教育</b></a></td></tr>
-				
-<%
-  database.OpenConn();
-  ResultSet rs6=database.executeQuery("select * from news_title where typeid=6");
-  int count6=0;
-  while (rs6.next())
-  {
- 	 count6++;
- 	 if (count6==1)
- 	 {
- 	 %>
- 	 <tr><td><img src="images/jiaoyu.jpg" alt="Image" title="jiaoyu" class="image" /><b><a href="readnew.jsp?titleid=<%=rs6.getString("id")%>"><%=rs6.getString("title")%></a></b></td></tr>
- 	 <%
- 	 }
- 	 else
- 	 {
-  %>
-  	<tr><td><p><a href="readnew.jsp?titleid=<%=rs6.getString("id")%>"><%=rs6.getString("title")%></a></p></td></tr>
-  	<%
-  	}
-  }
-  database.closeConn();
-  database.closeStmt();
- %>
-   </table>
-          </div>
+              <tr><td><a href=""><b>教育</b></a></td></tr>		
+              <c:forEach items="${requestScope.data6}" var="news6" varStatus="status6">
+              <c:if test="${status6.count==1}">
+              <tr><td><img src="${pageContext.request.contextPath}/images/jiaoyu.jpg" alt="Image" title="tiyu" class="image" /><a href="/news2/servlet/ReadNews?titleid=${news6.id }">${news6.title }</a></td></tr>
+  			  </c:if>
+  			  <c:if test="${status6.count!=1}">
+  			  <tr><td><a href="/news2/servlet/ReadNews?titleid=${news6.id }">${news6.title }</a></td></tr>
+   			  </c:if>
+   			  </c:forEach>
+             </table>
+            </div>
 			
 	  </div>
-	</div>	
-			<div id="footer" >
+		
+	   <div id="footer" align="center">
         <a href="">新闻网简介</a> |<a href=""> 关于我们</a> |<a href=""> 联系我们</a> |<a href=""> 我要链接</a> |<a href=""> 版权声明</a> |<a href=""> 法律顾问</a> |<a href=""> 广告服务</a>　
             </div>
-
-
-
+</div>
 </body>
 </html>
