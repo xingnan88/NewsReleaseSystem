@@ -22,8 +22,8 @@ public class AddNewsServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		NewsManager manager=new NewsManager();
-
 		Encoding enc=new Encoding();
 	    String title=enc.encoding(request.getParameter("title"));
 	    int type=Integer.parseInt(enc.encoding(request.getParameter("type")));
@@ -35,9 +35,10 @@ public class AddNewsServlet extends HttpServlet {
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
+			
 		}
 	    
-	    response.sendRedirect("/news2/news4.jsp");
+	    response.sendRedirect("/news2.1/news4.jsp");
 	}
 
 }

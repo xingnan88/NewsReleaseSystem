@@ -24,7 +24,7 @@ public class ReadNews extends HttpServlet
 		{
 			News news = manager.get(titleid);
 			request.setAttribute("news", news);
-			request.getRequestDispatcher("/readNews.jsp").forward(request, response);
+			request.getRequestDispatcher("/rdnews.jsp").forward(request, response);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();

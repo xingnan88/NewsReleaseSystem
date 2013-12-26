@@ -14,13 +14,27 @@ img { border: 0; }
 
 /* layout */
 #content { margin: 10px auto; width: 960px; }
-#logo { margin: 0 0 10px 0; }
-
+#logo { 
+	margin: 0 0 0 0;
+	background-image:url(images/logo.jpg);
+	background-repeat:no-repeat;
+	width:910px;
+	height:95px;
+	 }
+	 .login{
+		 float:right;
+		 width:50px;
+		 margin-top:70px;
+		 font-size:13px;
+		 }
+#top,#mid,#bottom{
+	width:910px;
+	float:left;}
 /* main menu topics */
 #topics {
 	clear: left;
 	float: left;
-	width: 640px;
+	width: 590px;
 	background: #B0D0DC url(images/topicsbg.gif) repeat-x left bottom;
 	padding: 8px 5px;
 	margin: 0 0 5px 0;
@@ -31,7 +45,7 @@ img { border: 0; }
 
 /* main menu search */
 #search {
-	float: right;
+	float: left;
 	text-align: right;
 	background: #fff url(images/searchbg.gif) no-repeat;
 	color: #000;
@@ -49,8 +63,8 @@ img { border: 0; }
 /* left side */
 #left {
 	float: left;
-	width: 635px;
-	margin: 0 0 10px 0;
+	width: 630px;
+	margin: 0 10px 10px 0;
 }
 	.subheader {
 		margin: 0 0 10px 0;
@@ -86,8 +100,8 @@ img { border: 0; }
 	}
 	.thirds {
 		float: left;
-		width: 186px;
-		padding 0 10px 0 15px
+		width: 170px;
+		padding: 0 10px 0 15px;
 	}	
 	.image { float: left; margin: 0 9px 3px 0; }
 	
@@ -133,7 +147,7 @@ img { border: 0; }
 /* right side */
 #right {
 	float: right;
-	width: 310px;
+	width: 270px;
 	margin: 0 0 10px 0;
 }
 	.right_articles {
