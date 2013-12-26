@@ -1,6 +1,7 @@
 package com.huang.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -10,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.huang.util.Encoding;
 import com.huang.util.NewsManager;
+import com.huang.util.UserManager;
 
-public class LoginServlet extends HttpServlet
+public class UserDelete extends HttpServlet
 {
 
 	/**
@@ -26,26 +28,19 @@ public class LoginServlet extends HttpServlet
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		NewsManager loginManager = new NewsManager();
-		Encoding myEncoding=new Encoding();
-		
-		String userName=myEncoding.encoding(request.getParameter("userName"));
-		String password=myEncoding.encoding(request.getParameter("password"));
-		String email=myEncoding.encoding(request.getParameter("email"));
-		System.out.println("heihei");
-		String question=myEncoding.encoding(request.getParameter("question"));
-		String answer=myEncoding.encoding(request.getParameter("answer"));
-		
-		String sql="insert into user(userName,password,email,question,answer)values (?,?,?,?,?)";
-		
+		UserManager nm=new UserManager();
+		int id=Integer.parseInt(Encoding.encoding(request.getParameter("id")));
+		String sql="delete from user where id=?";
 		try
 		{
-			loginManager.update(sql, new Object[] {userName,password,email,question,answer});
+			nm.delete(sql, id);
 		} catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.getRequestDispatcher("/admin/error.jsp").forward(request, response);
 		}
+		
+		request.getRequestDispatcher("/admin/deleteSuccess.jsp").forward(request, response);
 	}
 
 }

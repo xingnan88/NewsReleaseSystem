@@ -21,17 +21,17 @@
 		<div id="content">
 			<%@ include file="head.jsp"%>
 			<div id="mid">
-				<table width="811" border="0" align="center">
+				<div id="left">
+				<table width="" border="0">
 					<tr>
-						<td width="483" background="images/bgshade.gif" height="30"
-							align="center">
+						<td width="400" background="images/bgshade.gif" height="30">
 							<font size="2px">标题 </font>
 						</td>
-						<td width="106" background="images/bgshade.gif" height="30"
+						<td width="100" background="images/bgshade.gif" height="30"
 							align="center">
 							<font size="2px">时间 </font>
 						</td>
-						<td width="194" background="images/bgshade.gif" height="30"
+						<td width="150" background="images/bgshade.gif" height="30"
 							align="center">
 							<font size="2px">编辑 </font>
 						</td>
@@ -40,30 +40,30 @@
 						varStatus="status1">
 						<tr>
 							<c:if test="${status1.index%2==0}">
-								<td width="483" background="images/bgshade.gif" height="25">
+								<td width="400" background="images/bgshade.gif" height="25">
 									<font size="2px">${news1.title} </font>
 								</td>
-								<td width="106" background="images/bgshade.gif" height="25">
+								<td width="100" background="images/bgshade.gif" height="25">
 									<font size="2px">${news1.pubtime} </font>
 								</td>
-								<td width="194" background="images/bgshade.gif" height="25">
+								<td width="150" background="images/bgshade.gif" height="25">
 									<font size="2px"> <a
-										href="servlet/ReadNews?titleid=${news1.id }">查看</a> <a
+										href="servlet/BackReadNews?titleid=${news1.id }">查看</a> <a
 										href="admin/postnew.jsp">添加</a> <a
 										href="servlet/DeleteServlet?id=${news1.id}">删除</a> <a
 										href="servlet/UpdateList?titleid=${news1.id}">修改</a></font>
 								</td>
 							</c:if>
 							<c:if test="${status1.index%2!=0}">
-								<td width="483" height="25">
+								<td width="400" height="25">
 									<font size="2px">${news1.title} </font>
 								</td>
-								<td width="106" height="25">
+								<td width="100" height="25">
 									<font size="2px">${news1.pubtime} </font>
 								</td>
-								<td width="194" height="25">
+								<td width="150" height="25">
 									<font size="2px"> <a
-										href="servlet/ReadNews?titleid=${news1.id}">查看</a> <a
+										href="servlet/BackReadNews?titleid=${news1.id}">查看</a> <a
 										href="admin/postnew.jsp">添加</a> <a
 										href="servlet/DeleteServlet?id=${news1.id}">删除</a> <a
 										href="servlet/UpdateList?titleid=${news1.id}">修改</a></font>
@@ -72,7 +72,10 @@
 					</c:forEach>
 					</tr>
 				</table>
+                </div>
+                <%@include file="right.jsp" %>
 			</div>
+	
 			<%@ include file="bottom.jsp"%>
 		</div>
 	</body>

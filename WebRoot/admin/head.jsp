@@ -1,22 +1,43 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="com.huang.model.User" %>
+<%@ page import="com.huang.model.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="top">
 	<div id="logo">
 		<%
-			if (application.getAttribute("findUser") != null)
+			if (session.getAttribute("manager") != null)
 			{
-				User user = (User) application.getAttribute("findUser");
+				User manager = (User) session.getAttribute("manager");
 		%>
-		<div class="login"><a href="servlet/out">注销</a></div> 
-		<div class="login"><%=user.getUserName() %></a></div>
-		<div class="login">你好</div>
+		<div class="login">
+			<a href="servlet/out">注销</a>
+		</div>
+		<div class="login"><%=manager.getUserName()%>
+		</div>
+		<div class="login">
+			管理员
+		</div>
 		<%
-			} else
+			}
+			if (session.getAttribute("editor") != null)
+			{
+				User editor = (User) session.getAttribute("editor");
+		%>
+		<div class="login">
+			<a href="servlet/out">注销</a>
+		</div>
+		<div class="login"><%=editor.getUserName()%>
+		</div>
+		<div class="login">
+			编辑员
+		</div>
+		<%
+			}
+			if (session.getAttribute("manager") == null & session.getAttribute("editor") ==null)
 			{
 		%>
-		<div class="login"><a href="register.jsp">注册</a></div>
-		<div class="login"><a href="admin/login.jsp">登录</a></div> 
+		<div class="login">
+			<a href="admin/login.jsp">登录</a>
+		</div>
 		<%
 			}
 		%>

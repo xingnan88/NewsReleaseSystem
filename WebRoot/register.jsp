@@ -77,9 +77,10 @@ input.button{
   <body>
 <div id="pageHolder">
   <div class="action">
-    <form name="registerActionForm" method="POST" action="servlet/LoginServlet">
+    <form name="registerActionForm" method="POST" action="servlet/RegisterServlet">
       <h2>注册</h2>
       <p>欢迎注册，注册过程将不会收取您任何费用。我们承诺保护您的信息安全，不会将它提供给任何第三方。</p>
+      <input type="hidden" name="userType" value="user"/>
       <table>
         <tr>
           <td style="vertical-align:top"><label for="username">用户名:</label></td>
@@ -108,13 +109,13 @@ input.button{
             <span class="note">输入一个你可以很容易回答，别人却很难猜到答案的问题。例如"我的一个宠物的名字叫什么？"</span></td>
         </tr>
         <tr>
-          <td><label for="secretA">问题答案:</label></td>
+          <td><label for="answer">问题答案:</label></td>
           <td><input type="text" name="answer" value="" style="width:300px" class="textInput" id="secretA" /></td>
         </tr>
       </table>
       <div class="formAction">
         <input type="submit" value="提交" class="button" />
-        <input type="reset" value="重置" class="button" />"
+        <input type="reset" value="重置" class="button" />
       </div>
     </form>
   </div>

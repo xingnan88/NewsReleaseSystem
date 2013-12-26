@@ -146,6 +146,7 @@ img { border: 0; }
 		
 /* right side */
 #right {
+	clear:right;
 	float: right;
 	width: 270px;
 	margin: 0 0 10px 0;

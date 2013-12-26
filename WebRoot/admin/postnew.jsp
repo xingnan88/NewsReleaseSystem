@@ -1,10 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="com.huang.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
+	pageContext.setAttribute("ctx",path);
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -15,6 +17,7 @@
 		<meta name="description" content="My Site" />
 		<meta name="keywords" content="key, words" />
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+		<script type="text/javascript" src="/ckeditor_3.6.1/ckeditord/ckeditor.js"></script> 
 		<title>news</title>
 	</head>
 	<body>
@@ -81,7 +84,14 @@
 									内容：
 								</td>
 								<td>
-									<textarea name="content" id="textarea" cols="45" rows="5"></textarea>
+								<script type="text/javascript" src="${ctx}/fckeditor/fckeditor.js"></script>
+											<script type="text/javascript">
+				var oFCKeditor = new FCKeditor("content");
+				oFCKeditor.BasePath	= '${ctx}/fckeditor/' ;
+				oFCKeditor.Height	= 300 ;
+				oFCKeditor.ToolbarSet = 'Default';
+				oFCKeditor.Create() ;
+				</script>
 								</td>
 							</tr>
 							<tr>
@@ -96,42 +106,7 @@
 					</form>
 				</div>
 
-				<div id="right">
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>体育</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>军事</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>教育</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-
-				</div>
+			<%@include file="right.jsp" %>
 			</div>
 
 			<%@include file="bottom.jsp" %>

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
+	pageContext.setAttribute("ctx",path);
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
@@ -87,7 +88,15 @@
 									内容：
 								</td>
 								<td>
-									<textarea name="content" id="textarea" cols="45" rows="5">${requestScope.news.content}</textarea>
+						<script type="text/javascript" src="${ctx}/fckeditor/fckeditor.js"></script>
+											<script type="text/javascript">
+				var oFCKeditor = new FCKeditor("content");
+				oFCKeditor.BasePath	= '${ctx}/fckeditor/' ;
+				oFCKeditor.Height	= 300 ;
+				oFCKeditor.ToolbarSet = 'Default';
+				oFCKeditor.Create() ;
+				
+				</script>
 								</td>
 							</tr>
 							<tr>
@@ -102,42 +111,7 @@
 					</form>
 				</div>
 
-				<div id="right">
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>体育</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>军事</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>教育</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-
-				</div>
+			<%@include file="right.jsp" %>
 			</div>
 
 			<%@include file="bottom.jsp" %>

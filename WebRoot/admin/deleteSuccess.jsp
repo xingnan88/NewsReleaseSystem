@@ -23,47 +23,16 @@
 			<div id="mid">
 				<div id="left">
 					<h1>
-						删除新闻成功！
+						删除成功！
 					</h1>
 					<a href="admin/backstage.jsp">回到后台新闻列表</a>
+					<br/>
+					<a href="servlet/UserList">回到用户列表</a>
+								<br />
+					<a href="servlet/GetNewsServlet">查看添加后的前台显示</a>
 				</div>
 
-				<div id="right">
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>体育</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>军事</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-					<div class="right_articles">
-						<table border="0">
-							<tr>
-								<td>
-									<a href=""><b>教育</b>
-									</a>
-								</td>
-							</tr>
-
-						</table>
-					</div>
-
-				</div>
+			<%@include file="right.jsp" %>
 			</div>
 
 			<%@include file="bottom.jsp" %>

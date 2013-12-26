@@ -25,8 +25,8 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.huang.servlet.LoginServlet</servlet-class>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.huang.servlet.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -64,6 +64,34 @@
     <servlet-name>out</servlet-name>
     <servlet-class>com.huang.servlet.out</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BackReadNews</servlet-name>
+    <servlet-class>com.huang.servlet.BackReadNews</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangePassword</servlet-name>
+    <servlet-class>com.huang.servlet.ChangePassword</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserList</servlet-name>
+    <servlet-class>com.huang.servlet.UserList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserDelete</servlet-name>
+    <servlet-class>com.huang.servlet.UserDelete</servlet-class>
+  </servlet>
+
+
+
+
 
 
 
@@ -86,8 +114,8 @@
     <url-pattern>/servlet/ReadNews</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/servlet/LoginServlet</url-pattern>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/servlet/RegisterServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Backstage</servlet-name>
@@ -112,6 +140,22 @@
   <servlet-mapping>
     <servlet-name>out</servlet-name>
     <url-pattern>/servlet/out</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BackReadNews</servlet-name>
+    <url-pattern>/servlet/BackReadNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangePassword</servlet-name>
+    <url-pattern>/servlet/ChangePassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserList</servlet-name>
+    <url-pattern>/servlet/UserList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserDelete</servlet-name>
+    <url-pattern>/servlet/UserDelete</url-pattern>
   </servlet-mapping>
 
 

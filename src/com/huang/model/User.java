@@ -1,5 +1,7 @@
 package com.huang.model;
 
+import java.util.Date;
+
 public class User
 {
 	private int id;
@@ -8,7 +10,16 @@ public class User
 	private String email;
 	private String question;
 	private String answer;
-	
+	private String userType;
+	private Date registerDate;
+	public int getId()
+	{
+		return id;
+	}
+	public void setId(int id)
+	{
+		this.id = id;
+	}
 	public String getUserName()
 	{
 		return userName;
@@ -24,6 +35,14 @@ public class User
 	public void setPassword(String password)
 	{
 		this.password = password;
+	}
+	public String getEmail()
+	{
+		return email;
+	}
+	public void setEmail(String email)
+	{
+		this.email = email;
 	}
 	public String getQuestion()
 	{
@@ -41,22 +60,22 @@ public class User
 	{
 		this.answer = answer;
 	}
-	public int getId()
+	public String getUserType()
 	{
-		return id;
+		return userType;
 	}
-	public void setId(int id)
+	public void setUserType(String userType)
 	{
-		this.id = id;
+		this.userType = userType;
 	}
-	public String getEmail()
+	public Date getRegisterDate()
 	{
-		return email;
+		return registerDate;
 	}
-	public void setEmail(String email)
+	public void setRegisterDate(Date registerDate)
 	{
-		this.email = email;
+		this.registerDate = registerDate;
 	}
-
+	
 	
 }

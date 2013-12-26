@@ -63,9 +63,18 @@ function login()
                     <td height="50"><input type="password" name="password" id="password" style="width:164px; height:32px; line-height:34px; background:url(images/login/images/inputbg.gif) repeat-x; border:solid 1px #d1d1d1; font-size:9pt; "></td>
                   </tr>
                   <tr>
-                    <td height="40">&nbsp;</td>
-                    <td height="40">&nbsp;</td>
-<%--                  <td height="60"><a href="javascript:;" onclick="document.getElementById('form1').submit()"><img src="images/login/images/login.gif" width="95" height="34" /></a></td>--%>
+                    <td height="40" width="100"><p>
+                      <label>
+                        <input name="userType" type="radio" id="userType_0" value="manager" checked="checked" />
+                        管理员</label>
+                      <br />
+                      <label>
+                        <input type="radio" name="userType" value="editor" id="userType_1" />
+                        编辑员</label>
+                      <br />
+                    </p></td>
+                    <td>&nbsp;</td>
+
                       <td height="60"><a href="javascript:;" onclick="return login()"><img src="images/login/images/login.gif" width="95" height="34" /></a></td>
                   </tr>
                 </table></td>
