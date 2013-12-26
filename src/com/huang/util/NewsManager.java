@@ -1,4 +1,4 @@
-package com.jxust.news;
+package com.huang.util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.huang.model.News;
 
 public class NewsManager
 {

@@ -1,4 +1,4 @@
-package com.jxust.news;
+package com.huang.util;
 
 
 import java.sql.Connection;

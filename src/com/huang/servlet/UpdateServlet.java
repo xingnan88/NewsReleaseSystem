@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.Encoding;
-import com.jxust.news.NewsManager;
+import com.huang.util.Encoding;
+import com.huang.util.NewsManager;
 
 public class UpdateServlet extends HttpServlet
 {
@@ -44,7 +44,7 @@ public class UpdateServlet extends HttpServlet
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("/updateSuccess.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/updateSuccess.jsp").forward(request, response);
 	}
 	
 	public int typeValue(String type)

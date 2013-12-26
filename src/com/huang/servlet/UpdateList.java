@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.News;
-import com.jxust.news.NewsManager;
+import com.huang.model.News;
+import com.huang.util.NewsManager;
 
 public class UpdateList extends HttpServlet
 {
@@ -32,7 +32,7 @@ public class UpdateList extends HttpServlet
 			String type=this.type(news.getTypeId());
 			request.setAttribute("news", news);
 			request.setAttribute("type", type);
-			request.getRequestDispatcher("/update.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/update.jsp").forward(request, response);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();

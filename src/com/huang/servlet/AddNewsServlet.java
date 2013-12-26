@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.Encoding;
-import com.jxust.news.NewsManager;
+import com.huang.util.Encoding;
+import com.huang.util.NewsManager;
 
 public class AddNewsServlet extends HttpServlet {
 
@@ -42,7 +42,7 @@ public class AddNewsServlet extends HttpServlet {
 			
 		}
 	    
-		request.getRequestDispatcher("/addSuccess.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/addSuccess.jsp").forward(request, response);
 	}
 	
 	public int typeValue(String type)

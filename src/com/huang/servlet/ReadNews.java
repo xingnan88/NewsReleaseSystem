@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.News;
-import com.jxust.news.NewsManager;
+import com.huang.model.News;
+import com.huang.util.NewsManager;
 
 public class ReadNews extends HttpServlet
 {

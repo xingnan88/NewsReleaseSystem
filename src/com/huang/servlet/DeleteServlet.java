@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.Encoding;
-import com.jxust.news.NewsManager;
+import com.huang.util.Encoding;
+import com.huang.util.NewsManager;
 
 public class DeleteServlet extends HttpServlet
 {
@@ -33,7 +33,7 @@ public class DeleteServlet extends HttpServlet
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("/deleteSuccess.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/deleteSuccess.jsp").forward(request, response);
 	}
 
 }

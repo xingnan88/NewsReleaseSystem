@@ -1,4 +1,4 @@
-package com.jxust.news;
+package com.huang.model;
 
 import java.util.Date;
 

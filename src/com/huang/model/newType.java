@@ -1,4 +1,4 @@
-package com.jxust.news;
+package com.huang.model;
 
 public class newType
 {

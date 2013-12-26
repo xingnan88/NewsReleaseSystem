@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jxust.news.Encoding;
-import com.jxust.news.NewsManager;
+import com.huang.util.Encoding;
+import com.huang.util.NewsManager;
 
 public class Backstage extends HttpServlet
 {
@@ -45,7 +45,7 @@ public class Backstage extends HttpServlet
 			else if (data==8)
 				request.setAttribute("data", manager.find("select * from news_title where typeid=8", null));
 			
-			request.getRequestDispatcher("/backstage.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/backstage.jsp").forward(request, response);
 		}
 		catch(Exception e)
 		{
