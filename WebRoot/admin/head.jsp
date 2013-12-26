@@ -81,7 +81,7 @@
 		</div>
 	</div>
 	<div id="search">
-		<form method="post" action="?">
+		<form method="post" action="servlet/Search">
 			<p>
 				<input type="text" name="search" class="search" />
 				<input type="submit" value="搜索" class="button" />

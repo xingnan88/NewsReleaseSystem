@@ -48,7 +48,7 @@ public class ChangePassword extends HttpServlet
 		
 		} else
 		{
-			request.setAttribute("message", "该管理员不存在！！");
+			request.setAttribute("message", "用户不存在！！");
 			request.getRequestDispatcher("/warning.jsp").forward(request, response);
 		}
 

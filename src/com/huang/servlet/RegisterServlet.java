@@ -44,6 +44,7 @@ public class RegisterServlet extends HttpServlet
 		try
 		{
 			loginManager.update(sql, new Object[] {userName,password,email,question,answer,registerDate,userType});
+			request.setAttribute("userType", userType);
 			request.getRequestDispatcher("/registerSuccess.jsp").forward(request, response);
 		} catch (SQLException e)
 		{

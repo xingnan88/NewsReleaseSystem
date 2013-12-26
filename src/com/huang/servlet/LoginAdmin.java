@@ -28,8 +28,8 @@ public class LoginAdmin extends HttpServlet
 		String userType = Encoding.encoding(request.getParameter("userType"));
 		String userName = Encoding.encoding(request.getParameter("userName"));
 		String password = Encoding.encoding(request.getParameter("password"));
-		System.out.print(userName);
-		System.out.print(password);
+		System.out.println(userName);
+		System.out.println(password);
 		UserManager um = new UserManager();
 		User user = um.findUser(userName, userType);
 		HttpSession session = request.getSession();

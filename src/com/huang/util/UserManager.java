@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
 
 import com.huang.model.News;
 import com.huang.model.User;
@@ -39,6 +38,7 @@ public class UserManager
 				user.setQuestion(rs.getString("question"));
 				user.setUserName(rs.getString("userName"));
 				user.setUserType(rs.getString("userType"));
+				user.setRegisterDate(rs.getDate("registerDate"));
 				return user;
 			}
 
@@ -98,8 +98,12 @@ public class UserManager
 			{
 				User user = new User();
 				user.setId(rs.getInt("id"));
-				user.setUserType(rs.getString("userType"));
+				user.setAnswer(rs.getString("answer"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setQuestion(rs.getString("question"));
 				user.setUserName(rs.getString("userName"));
+				user.setUserType(rs.getString("userType"));
 				user.setRegisterDate(rs.getDate("registerDate"));
 				list.add(user);
 			}
@@ -118,6 +122,47 @@ public class UserManager
 		{
 			util.close(conn, stam, rs);
 		}
+	}
+	
+	public User findById(int id)
+	{
+		JdbcUtil util = new JdbcUtil();
+		try
+		{
+			conn = util.getConnection();
+			stam = conn.prepareStatement("select * from user where id=?");
+			stam.setInt(1, id);
+			rs = stam.executeQuery();
+			News news = null;
+			if (rs.next())
+			{
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setAnswer(rs.getString("answer"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setQuestion(rs.getString("question"));
+				user.setUserName(rs.getString("userName"));
+				user.setUserType(rs.getString("userType"));
+				user.setRegisterDate(rs.getDate("registerDate"));
+				return user;
+			}
+
+			return null;
+
+		} catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+			return null;
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+			return null;
+		} finally
+		{
+			util.close(conn, stam, rs);
+		}
+		
 	}
 
 	public void delete(String sql, int id) throws SQLException

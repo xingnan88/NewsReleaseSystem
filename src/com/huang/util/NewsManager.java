@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+
 import com.huang.model.News;
 
 public class NewsManager
@@ -51,27 +52,6 @@ public class NewsManager
 			util.close(conn, stam, rs);
 		}
 	}
-//	@Test
-//	public void test() throws SQLException
-//	{
-//		JdbcUtil util = new JdbcUtil();
-//		try
-//		{
-//			conn = util.getConnection();
-//			stam = conn.prepareStatement("select * from news_type where type = 'abc'");
-//
-//			rs = stam.executeQuery();
-//
-//			System.out.println(rs.getInt("id"));
-//
-//		} catch (ClassNotFoundException e)
-//		{
-//			e.printStackTrace();
-//		} finally
-//		{
-//			util.close(conn, stam, rs);
-//		}
-//	}
 	
 	public List<News> find(String sql, Object[] args) throws SQLException
 	{
@@ -84,9 +64,9 @@ public class NewsManager
 			stam = conn.prepareStatement(sql);
 			if (null != args)
 			{
-				for (int i = 1; i <= args.length; i++)
+				for (int i = 0; i < args.length; i++)
 				{
-					stam.setObject(i, args[i]);
+					stam.setObject(i+1, args[i]);
 				}
 			}
 
@@ -205,9 +185,9 @@ public class NewsManager
 			stam = conn.prepareStatement(sql);
 			if (null != args)
 			{
-				for (int i = 1; i <= args.length; i++)
+				for (int i = 0; i <args.length; i++)
 				{
-					stam.setObject(i, args[i]);
+					stam.setObject(i+1, args[i]);
 				}
 			}
 
@@ -260,4 +240,25 @@ public class NewsManager
 		}
 		
 	}*/
+
+//@Test
+//	public void testFind()
+//	{
+//		NewsManager nm=new NewsManager();
+//		String sql="select * from news_title where title like ?";
+//		String search="¹úÎñ";
+//		String key="%"+search+"%";
+//		try {
+//			List<News> news=nm.find(sql, new Object[]{key});
+//			System.out.println(news.size());
+//			for (News n : news)
+//			{
+//				System.out.print(n.getTitle());
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+	
 }

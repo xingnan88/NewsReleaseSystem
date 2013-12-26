@@ -49,7 +49,6 @@
 								<td width="150" background="images/bgshade.gif" height="25">
 									<font size="2px"> <a
 										href="servlet/BackReadNews?titleid=${news1.id }">查看</a> <a
-										href="admin/postnew.jsp">添加</a> <a
 										href="servlet/DeleteServlet?id=${news1.id}">删除</a> <a
 										href="servlet/UpdateList?titleid=${news1.id}">修改</a></font>
 								</td>
@@ -63,8 +62,7 @@
 								</td>
 								<td width="150" height="25">
 									<font size="2px"> <a
-										href="servlet/BackReadNews?titleid=${news1.id}">查看</a> <a
-										href="admin/postnew.jsp">添加</a> <a
+										href="servlet/BackReadNews?titleid=${news1.id}">查看</a>  <a
 										href="servlet/DeleteServlet?id=${news1.id}">删除</a> <a
 										href="servlet/UpdateList?titleid=${news1.id}">修改</a></font>
 								</td>

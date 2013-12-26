@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="login">
 			<a href="servlet/out">注销</a>
 		</div>
-		<div class="login"><%=user.getUserName()%>
+		<div class="login"><a href="servlet/UserMessage?userType=user&id=<%=user.getId() %>"><%=user.getUserName()%></a>
 		</div>
 		<div class="login">
 			你好
@@ -326,8 +326,7 @@ window.onload=function(){
             </div>
 			
 	  </div>
-		</div>
-        
+		</div>       
         <div id="bottom">
 		<div id="footer" align="center">
         <a href="">新闻网简介</a> |<a href=""> 关于我们</a> |<a href=""> 联系我们</a> |<a href=""> 我要链接</a> |<a href=""> 版权声明</a> |<a href=""> 广告服务</a> |<a href="admin/login.jsp">后台登陆</a>　
